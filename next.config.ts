@@ -1,11 +1,15 @@
 import type { NextConfig } from "next";
 
 // Permisivo pero presente: pasa Lighthouse Best Practices sin romper el
-// embed de Tally (widget script + iframe). Nada de analytics todavía — se
-// suma a esta lista cuando se activen Meta Pixel / GA4 con IDs reales.
+// embed de Tally (widget script + iframe). 'unsafe-inline' en script-src
+// es necesario para los scripts inline que Next.js inyecta para hidratar
+// (sin esto, Chrome los bloquea y React tira el error #412 de hidratación
+// — lo encontramos así, con Lighthouse, no es paranoia). Nada de analytics
+// todavía — se suma a esta lista cuando se activen Meta Pixel / GA4 con
+// IDs reales.
 const contentSecurityPolicy = [
   "default-src 'self'",
-  "script-src 'self' https://tally.so",
+  "script-src 'self' 'unsafe-inline' https://tally.so",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",

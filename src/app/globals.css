@@ -2695,6 +2695,11 @@ summary {
 }
 .course-facts span span {
   color: var(--muted);
+  /* Cancela opacity:.85 de la regla v2.5 (pensada para texto --paper sobre
+     un hero-shell de color), que de otro modo sigue viva acá y licua el
+     --muted final a un contraste de 4.11 contra el papel (hallazgo de
+     Lighthouse, no una decisión de diseño). */
+  opacity: 1;
 }
 .editorial-band {
   background: var(--soft);
