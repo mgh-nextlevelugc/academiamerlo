@@ -48,9 +48,9 @@ export function Hero({ mode }: { mode: PageMode }) {
             <Image
               src="/cesar-merlo-hero.jpg"
               alt="César Luis Merlo mostrando su teléfono"
-              width={400}
-              height={400}
-              sizes="(max-width: 680px) 112px, 410px"
+              width={890}
+              height={890}
+              sizes="(max-width: 680px) 112px, 430px"
               preload
             />
             <figcaption className="portrait-caption">
