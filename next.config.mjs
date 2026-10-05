@@ -1,4 +1,7 @@
-import type { NextConfig } from "next";
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Permisivo pero presente: pasa Lighthouse Best Practices sin romper el
 // embed de Tally (widget script + iframe). 'unsafe-inline' en script-src
@@ -18,10 +21,13 @@ const contentSecurityPolicy = [
   "frame-ancestors 'self'",
 ].join("; ");
 
-const nextConfig: NextConfig = {
-  // Hay otro package-lock.json en /Users/migue_h/Desktop/roikon (fuera de
-  // este repo); sin esto, Next infiere mal la raíz del workspace.
-  outputFileTracingRoot: process.cwd(),
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // .ts falla al compilar en hosts con glibc vieja (SWC nativo no carga
+  // ahí y el loader de config de Next se rompe al intentar el fallback) —
+  // .mjs lo evita por completo, no necesita compilarse. Mismo patrón que
+  // roikon-website.
+  outputFileTracingRoot: __dirname,
   async headers() {
     return [
       {
