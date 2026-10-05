@@ -38,8 +38,11 @@ export function Register() {
         <div>
           <span className="label red">La próxima noticia puede ser tuya</span>
           <h2>El primer paso empieza aquí.</h2>
-          <p>Súmate a la lista y recibe por email el aviso de apertura de Academia Merlo.</p>
-          <p className="form-note">Registrarte es gratis y no implica comprar el programa.</p>
+          {/* El formulario de Tally ya dice "Súmate", "es gratis" y "30
+              segundos". Este bloque no los repite: sostiene el encuadre
+              editorial y deja la mecánica al formulario. */}
+          <p>Te avisamos por email en cuanto se confirme la apertura de Academia Merlo.</p>
+          <p className="form-note">Registrarte no implica comprar nada.</p>
         </div>
         <div
           className="tally-slot"
