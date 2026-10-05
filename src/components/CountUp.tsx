@@ -32,6 +32,7 @@ export function CountUp({ value, suffix }: { value: number; suffix: string }) {
     if (reducedMotion) return;
     const el = ref.current;
     if (!el) return;
+    let raf = 0;
     const io = new IntersectionObserver(
       (entries) => {
         if (!entries[0]?.isIntersecting) return;
@@ -43,14 +44,19 @@ export function CountUp({ value, suffix }: { value: number; suffix: string }) {
           const t = Math.min(1, (now - start) / duration);
           const eased = 1 - Math.pow(1 - t, 3);
           setDisplay(Math.round(value * eased));
-          if (t < 1) requestAnimationFrame(step);
+          if (t < 1) raf = requestAnimationFrame(step);
         };
-        requestAnimationFrame(step);
+        raf = requestAnimationFrame(step);
       },
       { threshold: 0.4 },
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      // Sin esto la animación seguía corriendo tras desmontar o tras activar
+      // reduced motion a mitad de camino.
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, [value, reducedMotion]);
 
   const shown = reducedMotion ? value : display;

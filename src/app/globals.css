@@ -4473,6 +4473,55 @@ details[open] p {
 }
 
 
+/* --- Páginas legales --- */
+.legal .wrap {
+  max-width: 68ch;
+}
+.legal h1 {
+  font-size: clamp(32px, 4vw, 46px);
+  margin-bottom: 12px;
+}
+.legal .legal-updated {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.legal .legal-intro {
+  font-size: 19px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+.legal .legal-section {
+  margin-top: 36px;
+}
+.legal .legal-section h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  max-width: none;
+}
+.legal .legal-section p {
+  font-size: 17px;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.legal .legal-section ul {
+  font-size: 17px;
+  line-height: 1.7;
+  padding-left: 20px;
+  margin: 0 0 14px;
+}
+@media (max-width: 680px) {
+  .legal h1 {
+    font-size: 30px;
+  }
+  .legal .legal-section {
+    margin-top: 28px;
+  }
+}
+
+
 /* --- Enlaces legales del footer --- */
 .footer .footer-legal {
   display: flex;

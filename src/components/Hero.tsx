@@ -50,6 +50,7 @@ export function Hero({ mode }: { mode: PageMode }) {
               alt="César Luis Merlo mostrando su teléfono"
               width={400}
               height={400}
+              sizes="(max-width: 680px) 112px, 410px"
               preload
             />
             <figcaption className="portrait-caption">

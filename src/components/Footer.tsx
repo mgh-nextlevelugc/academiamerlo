@@ -12,6 +12,7 @@ export function Footer() {
               alt="Academia Merlo"
               width={1654}
               height={951}
+              sizes="190px"
             />
           </a>
           <p>
@@ -42,6 +43,7 @@ export function Footer() {
                   alt="Te Dejo en Orsai"
                   width={100}
                   height={100}
+                  sizes="76px"
                 />
               </span>
             </div>

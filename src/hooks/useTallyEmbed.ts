@@ -71,7 +71,14 @@ export function useTallyEmbed(formId: string) {
         script.src = "https://tally.so/widgets/embed.js";
         script.async = true;
         script.onload = () => resolve();
-        script.onerror = () => reject(new Error("widget-unavailable"));
+        script.onerror = () => {
+          // Si falla, olvidamos la promesa: con una rechazada memorizada,
+          // un fallo de red puntual dejaba el formulario muerto para toda la
+          // sesión aunque la red volviera.
+          widgetPromiseRef.current = null;
+          script.remove();
+          reject(new Error("widget-unavailable"));
+        };
         document.head.append(script);
       });
     }
@@ -87,6 +94,20 @@ export function useTallyEmbed(formId: string) {
       setMounted(true);
       setFallbackHref(formURL(false, email).href);
       setStatus("Cargando el formulario…");
+
+      // El widget de Tally le agrega al iframe todo el query string de la
+      // página, después de nuestra lista de parámetros. Si la URL trae un
+      // ?email=, ese gana sobre el que la persona acaba de escribir en el
+      // hero. Lo sacamos de la barra de direcciones antes de montar, así no
+      // hay nada que pueda pisarlo. Los utm_* y ref se dejan: esos los
+      // queremos reenviar igual.
+      if (email) {
+        const pageUrl = new URL(window.location.href);
+        if (pageUrl.searchParams.has("email")) {
+          pageUrl.searchParams.delete("email");
+          window.history.replaceState({}, "", pageUrl);
+        }
+      }
 
       iframeRef.current?.remove();
       const iframe = document.createElement("iframe");
@@ -156,17 +177,24 @@ export function useTallyEmbed(formId: string) {
       } catch {
         return;
       }
-      const payload = data as { event?: string; payload?: { formId?: string } };
+      const payload = data as { event?: string; payload?: { formId?: string; page?: number } };
       if (payload?.payload?.formId !== formId) return;
       if (payload.event === "Tally.FormLoaded") {
         window.clearTimeout(loadTimerRef.current);
         setStatus("");
       }
-      if (payload.event === "Tally.FormPageView") frameTouchedRef.current = true;
+      if (payload.event === "Tally.FormPageView") {
+        // Tally emite esto solo al cargar, con page: 1. Contarlo como
+        // interacción dejaba el formulario "tocado" sin que nadie hubiera
+        // escrito nada, y con eso el prefill del hero no se aplicaba nunca
+        // para quien ya había pasado por la sección. Solo cuenta avanzar de
+        // página, que sí implica que la persona está completando.
+        if ((payload.payload?.page ?? 1) > 1) frameTouchedRef.current = true;
+      }
       if (payload.event === "Tally.FormSubmitted") {
         window.clearTimeout(loadTimerRef.current);
         frameTouchedRef.current = true;
-        setStatus("Tu registro fue enviado. Revisá la confirmación en el formulario.");
+        setStatus("Tu registro fue enviado. Revisa la confirmación en el formulario.");
       }
     };
     window.addEventListener("message", onMessage);
@@ -174,6 +202,9 @@ export function useTallyEmbed(formId: string) {
     return () => {
       window.removeEventListener("blur", onBlur);
       window.removeEventListener("message", onMessage);
+      // El timeout de "si no aparece, abrilo en otra pestaña" sobrevivía al
+      // desmontaje y seguía trabajando después de navegar.
+      window.clearTimeout(loadTimerRef.current);
     };
   }, [formId]);
 

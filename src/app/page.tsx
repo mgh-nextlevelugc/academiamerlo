@@ -13,11 +13,13 @@ export const metadata: Metadata =
         title: { absolute: "Academia Merlo · Lista de espera" },
         description:
           "Súmate a la lista de espera de Academia Merlo y recibe el aviso de apertura del programa de periodismo en el mercado de pases con César Luis Merlo.",
+        alternates: { canonical: "/" },
       }
     : {
         title: { absolute: "Academia Merlo · Inscripciones abiertas" },
         description:
           "Periodismo en el mercado de pases con César Luis Merlo. Standard y VIP, pago único, acceso de por vida.",
+        alternates: { canonical: "/" },
       };
 
 export default function HomePage() {

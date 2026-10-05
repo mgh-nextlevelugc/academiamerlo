@@ -13,6 +13,9 @@ export function Mentor() {
               alt="César Luis Merlo hablando por teléfono"
               width={2773}
               height={3697}
+              // Se muestra a ~400px en desktop y a ancho completo en movil.
+              // Sin esto Next pedia la variante de 3840px para ese espacio.
+              sizes="(max-width: 680px) 100vw, 400px"
             />
             <figcaption>
               César Luis Merlo <span>Periodista especializado en mercado de pases</span>
