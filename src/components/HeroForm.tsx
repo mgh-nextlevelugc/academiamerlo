@@ -7,7 +7,7 @@ export const TALLY_CONTINUE_EVENT = "academia-merlo:tally-continue";
 /**
  * Captura de email en el hero. Al enviar, notifica a <Register> (sección
  * #lista) por CustomEvent con el email para que monte/prefilee Tally, y
- * lleva el foco + scroll al tally-slot — igual que el script inline del
+ * lleva el foco + scroll al tally-slot, igual que el script inline del
  * prototipo. Las dos áreas de estado (hero-status aquí, el status del
  * formulario en Register) son independientes, como en el HTML original.
  */

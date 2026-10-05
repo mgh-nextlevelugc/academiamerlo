@@ -5,7 +5,7 @@ import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 // Separador de miles ".", fijo, sin depender de un locale regional: la
 // audiencia es LATAM-wide (sobre todo México), donde Intl.NumberFormat
-// con "es-MX"/"es-419" usa coma — eso rompería el "1.000M+" que el brief
+// con "es-MX"/"es-419" usa coma, lo que rompería el "1.000M+" que el brief
 // pide mantener exacto. Esto da el mismo resultado en cualquier entorno/
 // versión de Node, sin sorpresas de locale/ICU.
 function formatThousands(n: number) {

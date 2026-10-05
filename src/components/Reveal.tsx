@@ -8,7 +8,7 @@ const useIsoEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect
 /**
  * Reveal al scroll detrás de NEXT_PUBLIC_MOTION. Anti-flicker: el contenido
  * es visible por defecto (sin clase .rv/.rv-dark) hasta que el efecto
- * confirma que el flag está en "on" y que no hay prefers-reduced-motion —
+ * confirma que el flag está en "on" y que no hay prefers-reduced-motion:
  * recién ahí se agrega la clase que oculta el elemento para animarlo al
  * entrar en viewport. Sin JS, con el flag apagado o con reduced-motion,
  * nunca se oculta nada.

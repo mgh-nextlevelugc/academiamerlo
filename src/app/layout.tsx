@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Periodismo en el mercado de pases con César Luis Merlo. Aprende a construir fuentes, verificar información y publicar con criterio.",
   openGraph: {
     siteName: "Academia Merlo",
-    // Audiencia LATAM-wide, sobre todo México — es_MX en vez de es_AR.
+    // Audiencia LATAM-wide, sobre todo México: es_MX en vez de es_AR.
     locale: "es_MX",
     type: "website",
   },

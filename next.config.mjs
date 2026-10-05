@@ -6,9 +6,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Permisivo pero presente: pasa Lighthouse Best Practices sin romper el
 // embed de Tally (widget script + iframe). 'unsafe-inline' en script-src
 // es necesario para los scripts inline que Next.js inyecta para hidratar
-// (sin esto, Chrome los bloquea y React tira el error #412 de hidratación
-// — lo encontramos así, con Lighthouse, no es paranoia). Nada de analytics
-// todavía — se suma a esta lista cuando se activen Meta Pixel / GA4 con
+// (sin esto, Chrome los bloquea y React tira el error #412 de hidratación:
+// lo encontramos así, con Lighthouse, no es paranoia). Nada de analytics
+// todavía, se suma a esta lista cuando se activen Meta Pixel / GA4 con
 // IDs reales.
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -24,7 +24,7 @@ const contentSecurityPolicy = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // .ts falla al compilar en hosts con glibc vieja (SWC nativo no carga
-  // ahí y el loader de config de Next se rompe al intentar el fallback) —
+  // ahí y el loader de config de Next se rompe al intentar el fallback):
   // .mjs lo evita por completo, no necesita compilarse. Mismo patrón que
   // roikon-website.
   outputFileTracingRoot: __dirname,

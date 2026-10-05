@@ -23,7 +23,7 @@ export function LegalPlaceholder({
             <p>{description}</p>
             <p>
               TODO: redactar el texto legal definitivo antes de abrir la captación de datos.
-              Este es un placeholder de staging — no publicar el dominio productivo sin esta
+              Este es un placeholder de staging: no publicar el dominio productivo sin esta
               página terminada.
             </p>
             <p>

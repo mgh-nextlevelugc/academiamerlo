@@ -3,7 +3,7 @@
 // merlo-v3.4 (addendum 3-oct) para el razonamiento completo del switch.
 export type SitePhase = "waitlist" | "launch";
 
-// Modo de contenido de una página concreta — distinto de SitePhase: "/"
+// Modo de contenido de una página concreta, distinto de SitePhase: "/"
 // cambia de modo según la fase, pero "/lista" siempre es "waitlist" y
 // "/inscripciones" siempre es "venta", sin importar la fase.
 export type PageMode = "waitlist" | "venta";
