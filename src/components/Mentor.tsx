@@ -48,7 +48,7 @@ export function Mentor() {
             {audienceNumbers.map((stat) => (
               <div className="stat" key={stat.label}>
                 <strong>
-                  <CountUp value={stat.numericValue} suffix={stat.suffix} label={stat.label} />
+                  <CountUp value={stat.numericValue} suffix={stat.suffix} />
                 </strong>
                 <span>
                   {stat.captionLines[0]}

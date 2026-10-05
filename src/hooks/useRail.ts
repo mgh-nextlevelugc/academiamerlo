@@ -1,18 +1,19 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
 /**
  * Comportamiento de los rails de medios: flechas con estado disabled, snap
- * por las posiciones reales de los hijos, teclado (flechas/Home/End) y
- * ocultar las flechas cuando no hay overflow (ResizeObserver).
+ * por las posiciones reales de los hijos, teclado (flechas/Home/End),
+ * ocultar las flechas cuando no hay overflow (ResizeObserver) y auto-avance
+ * cada 3.6s.
  *
- * El prototipo traía además auto-avance cada 3.6s con un botón "Pausar
- * movimiento". Se quitaron los dos juntos: el botón era ruido visual, pero
- * sacarlo dejando el movimiento automático habría incumplido WCAG 2.2.2
- * (todo lo que se mueve solo más de 5s necesita una forma de pararlo). Sin
- * auto-avance no hace falta control: el rail se mueve solo si la persona lo
- * mueve, con flechas, arrastre o teclado.
+ * El auto-avance se pausa solo con hover, touch, foco dentro del bloque,
+ * pestaña en segundo plano o prefers-reduced-motion, y expone un control de
+ * pausa explícito. Ese control no es decorativo: WCAG 2.2.2 pide una forma
+ * de detener cualquier cosa que se mueva sola más de 5 segundos, así que el
+ * movimiento automático y el botón van juntos.
  */
 export function useRail() {
   const railRef = useRef<HTMLDivElement | null>(null);
@@ -20,6 +21,20 @@ export function useRail() {
   const [hidden, setHidden] = useState(true);
   const [prevDisabled, setPrevDisabled] = useState(true);
   const [nextDisabled, setNextDisabled] = useState(true);
+
+  const reducedMotion = usePrefersReducedMotion();
+  const [manualPaused, setManualPaused] = useState<boolean | null>(null);
+  const paused = manualPaused ?? reducedMotion;
+
+  const visibleRef = useRef(false);
+  const hoverRef = useRef(false);
+  const touchRef = useRef(false);
+  // El intervalo de auto-avance se crea una sola vez; lee el estado de pausa
+  // por ref para no reiniciarse en cada toggle.
+  const pausedRef = useRef(paused);
+  useEffect(() => {
+    pausedRef.current = paused;
+  }, [paused]);
 
   const max = useCallback(() => {
     const el = railRef.current;
@@ -40,7 +55,7 @@ export function useRail() {
   }, [max]);
 
   const move = useCallback(
-    (dir: 1 | -1) => {
+    (dir: 1 | -1, loop = false) => {
       const el = railRef.current;
       if (!el) return;
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -48,7 +63,7 @@ export function useRail() {
       const ps = positions();
       let target =
         dir > 0 ? ps.find((p) => p > x + 3) : [...ps].reverse().find((p) => p < x - 3);
-      if (target === undefined) target = dir > 0 ? max() : 0;
+      if (target === undefined) target = loop && dir > 0 ? 0 : dir > 0 ? max() : 0;
       el.scrollTo({ left: target, behavior: reduced ? "instant" : "smooth" });
     },
     [positions, max],
@@ -66,6 +81,7 @@ export function useRail() {
 
   useEffect(() => {
     const el = railRef.current;
+    const media = mediaRef.current ?? el?.closest<HTMLDivElement>(".media") ?? null;
     if (!el) return;
 
     const onScroll = () => sync();
@@ -75,11 +91,63 @@ export function useRail() {
     document.fonts?.ready.then(sync).catch(() => {});
     sync();
 
+    const io = new IntersectionObserver(
+      (entries) => {
+        visibleRef.current = entries[0]?.isIntersecting ?? false;
+      },
+      { threshold: 0.2 },
+    );
+    io.observe(el);
+
+    const onEnter = () => {
+      hoverRef.current = true;
+    };
+    const onLeave = () => {
+      hoverRef.current = false;
+    };
+    media?.addEventListener("mouseenter", onEnter);
+    media?.addEventListener("mouseleave", onLeave);
+
+    const onDown = () => {
+      touchRef.current = true;
+    };
+    const onUp = () => {
+      touchRef.current = false;
+    };
+    el.addEventListener("pointerdown", onDown);
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("pointercancel", onUp);
+
+    const interval = window.setInterval(() => {
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const active = document.activeElement;
+      const focusedInside = Boolean(active && media?.contains(active));
+      if (
+        !pausedRef.current &&
+        !reduced &&
+        visibleRef.current &&
+        !hoverRef.current &&
+        !touchRef.current &&
+        !document.hidden &&
+        !focusedInside &&
+        max() > 3
+      ) {
+        move(1, true);
+      }
+    }, 3600);
+
     return () => {
       el.removeEventListener("scroll", onScroll);
       ro.disconnect();
+      io.disconnect();
+      media?.removeEventListener("mouseenter", onEnter);
+      media?.removeEventListener("mouseleave", onLeave);
+      el.removeEventListener("pointerdown", onDown);
+      window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("pointercancel", onUp);
+      window.clearInterval(interval);
     };
-  }, [sync]);
+  }, [sync, move, max]);
 
   const onKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -98,5 +166,15 @@ export function useRail() {
     [move, max],
   );
 
-  return { railRef, mediaRef, hidden, prevDisabled, nextDisabled, move, onKeyDown };
+  return {
+    railRef,
+    mediaRef,
+    hidden,
+    prevDisabled,
+    nextDisabled,
+    move,
+    onKeyDown,
+    paused,
+    togglePaused: () => setManualPaused(!paused),
+  };
 }

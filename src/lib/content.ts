@@ -37,11 +37,14 @@ export const journeyModules = [
       "Construye tu marca personal: posicionamiento, credibilidad y cómo leer a tu comunidad sin obedecerla.",
   },
   {
+    // El contenido grabado es "mapa regional y construir carrera". Titularlo
+    // solo "Carrera" dejaba afuera la mitad regional y encerraba el módulo en
+    // una salida laboral, cuando también le sirve a quien nunca va a ejercer.
     n: "06",
-    title: "Carrera",
-    waitlist: "El oficio país por país.",
+    title: "El mapa",
+    waitlist: "El mercado país por país, para trabajarlo o para leerlo.",
     venta:
-      "El oficio país por país: mercados, oportunidades y cómo construir tu camino profesional.",
+      "El mercado país por país: para construir carrera dentro del oficio, o para leerlo como quien lo trabaja desde adentro.",
   },
 ] as const;
 
@@ -119,18 +122,21 @@ export const audienceTabs = [
     body: "Quieres empezar, ya cubres fútbol o tienes tu propio canal. Aprende a construir fuentes y a decidir qué información está lista para publicarse.",
   },
   {
+    // Sin la palabra "apuestas": es un flanco de políticas para Meta Ads y
+    // encierra la pestaña en un solo perfil. Quien apuesta se reconoce igual
+    // en "tomas decisiones con la información que circula".
     id: "analisis",
     tab: "Análisis",
-    kicker: "Analistas y apostadores",
+    kicker: "Analistas y lectores del mercado",
     title: "Más contexto.\nMejores preguntas.",
-    body: "Sigues estadísticas, analizas partidos o apuestas y quieres entender de dónde sale la información que circula. Conoce el método periodístico para contrastar versiones y leer el mercado con criterio.",
+    body: "Tomas decisiones con la información que circula. Aprende a distinguir qué está confirmado, qué es una operación y qué es humo, antes de que el mercado lo confirme.",
   },
   {
     id: "fans",
     tab: "Fans",
     kicker: "Fans del fútbol",
-    title: "Vive el mercado\ndesde otro lugar.",
-    body: "Sigues cada ventana, debates cada pase y quieres entender qué hay detrás de un rumor. Entra en la lógica de las fuentes, los tiempos y las negociaciones.",
+    title: "Sé el que avisa.",
+    body: "Entiendes cada rumor, cada «tengo entendido que» y cada placa de último momento antes de que explote. La misma lógica de fuentes, tiempos y negociaciones que usa quien la publica.",
   },
 ] as const;
 
@@ -148,6 +154,10 @@ export const faqWaitlist = [
   {
     q: "¿Cómo funciona?",
     a: "Los módulos son grabados y puedes avanzar a tu ritmo. La modalidad VIP suma encuentros en vivo y espacios de consulta.",
+  },
+  {
+    q: "¿Me sirve si no quiero ser periodista?",
+    a: "Sí. El método para publicar información es el mismo que para leerla: vas a entender el mercado como quien lo trabaja por dentro.",
   },
   {
     q: "¿Anotarme en la lista reserva una vacante?",

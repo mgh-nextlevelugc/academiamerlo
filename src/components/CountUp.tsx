@@ -20,16 +20,7 @@ function formatThousands(n: number) {
  * valor final de una. Siempre activo (no depende de NEXT_PUBLIC_MOTION):
  * es el mismo tipo de detalle que el ticker editorial.
  */
-export function CountUp({
-  value,
-  suffix,
-  label,
-}: {
-  value: number;
-  suffix: string;
-  /** Texto final exacto (ej. "1.000M+") para lectores de pantalla. */
-  label: string;
-}) {
+export function CountUp({ value, suffix }: { value: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   // Arranca en el valor final: SSR, no-JS o JS lento nunca muestran "0M+".
   // El salto a 0 ocurre recién cuando el IntersectionObserver confirma que
@@ -64,13 +55,17 @@ export function CountUp({
 
   const shown = reducedMotion ? value : display;
 
+  // Un solo nodo con la cifra. Antes habia dos (uno animado con aria-hidden
+  // y otro visually-hidden con el valor final) para que un lector de pantalla
+  // no leyera un valor intermedio, pero eso dejaba el numero duplicado en el
+  // HTML servido ("1.000M+1.000M+"), que es lo que ven los scrapers y el
+  // extractor de texto de Google. No hace falta: un elemento que no es live
+  // region no se anuncia al cambiar, solo cuando la persona navega hasta el,
+  // y para entonces la animacion (900ms) ya termino.
   return (
-    <>
-      <span ref={ref} aria-hidden="true">
-        {formatThousands(shown)}
-        {suffix}
-      </span>
-      <span className="visually-hidden">{label}</span>
-    </>
+    <span ref={ref}>
+      {formatThousands(shown)}
+      {suffix}
+    </span>
   );
 }

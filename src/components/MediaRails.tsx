@@ -16,13 +16,36 @@ function MediaRail({
   ariaLabel: string;
   links: readonly RailLink[];
 }) {
-  const { railRef, mediaRef, hidden, prevDisabled, nextDisabled, move, onKeyDown } = useRail();
+  const {
+    railRef,
+    mediaRef,
+    hidden,
+    prevDisabled,
+    nextDisabled,
+    move,
+    onKeyDown,
+    paused,
+    togglePaused,
+  } = useRail();
 
   return (
     <div className="media" ref={mediaRef}>
       <div className="media-head">
         <span className="label">{label}</span>
         <div className={`arrows${hidden ? " is-hidden" : ""}`}>
+          {/* Control de pausa chico, en el mismo lenguaje visual que las
+              flechas. No es decorativo: lo exige WCAG 2.2.2 porque el rail
+              avanza solo. */}
+          <button
+            type="button"
+            className="arrow arrow-pause"
+            aria-controls={id}
+            aria-pressed={paused}
+            aria-label={`${paused ? "Reanudar" : "Pausar"} el movimiento de ${ariaLabel}`}
+            onClick={togglePaused}
+          >
+            {paused ? "▶" : "❚❚"}
+          </button>
           <button
             className="arrow"
             aria-controls={id}

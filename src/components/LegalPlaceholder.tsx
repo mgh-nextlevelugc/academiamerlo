@@ -34,7 +34,7 @@ export function LegalPlaceholder({
           </div>
         </section>
       </main>
-      <Footer note="Página pendiente. No usar como referencia legal definitiva." />
+      <Footer />
     </>
   );
 }

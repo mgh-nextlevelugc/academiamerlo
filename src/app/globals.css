@@ -4456,3 +4456,33 @@ details[open] p {
 .hero-form .btn[aria-busy="true"] {
   opacity: 0.75;
 }
+
+
+/* --- Control de pausa de los rails: mismo lenguaje que las flechas pero
+   mas chico, para que el bloque no cargue con un boton de texto. --- */
+.media-head .arrows {
+  flex-basis: auto;
+  align-items: center;
+}
+.media-head .arrow-pause {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+
+/* --- Enlaces legales del footer --- */
+.footer .footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.footer .footer-legal a {
+  text-decoration: underline;
+}
+.footer .footer-legal span {
+  opacity: 0.5;
+}

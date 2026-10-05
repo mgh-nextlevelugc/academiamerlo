@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 
-export function Footer({ note }: { note: string }) {
+export function Footer() {
   return (
     <footer className="footer rule">
       <div className="wrap">
@@ -47,7 +48,13 @@ export function Footer({ note }: { note: string }) {
             <small>© {new Date().getFullYear()} Academia Merlo</small>
           </div>
         </div>
-        <p className="footer-note">{note}</p>
+        <p className="footer-note footer-legal">
+          <Link href="/privacidad">Privacidad</Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/terminos">Términos</Link>
+          <span aria-hidden="true">·</span>
+          <Link href="/devoluciones">Devoluciones</Link>
+        </p>
       </div>
     </footer>
   );
