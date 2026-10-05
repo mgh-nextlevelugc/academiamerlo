@@ -104,7 +104,7 @@ export function Register() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Abrir el formulario en otra pestaña ↗
+            Abrir el formulario en otra pestaña
           </a>
         </div>
       </div>

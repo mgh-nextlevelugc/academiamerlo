@@ -15,8 +15,11 @@ function PhraseSet({ keyPrefix }: { keyPrefix: string }) {
         editorialPhrases.map((phrase, i) => (
           <span key={`${keyPrefix}-${repIndex}-${i}`} style={{ display: "contents" }}>
             <span className="phrase">{phrase}</span>
+            {/* Separador neutro: la flecha diagonal quedaba como un gesto
+                de link donde no hay ningún link, y el "·" ya es el separador
+                que usa el resto del sitio. */}
             <span className="tick" aria-hidden="true">
-              ↗
+              ·
             </span>
           </span>
         )),

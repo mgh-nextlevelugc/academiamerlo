@@ -37,7 +37,7 @@ export function Mentor() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Conoce sus canales ↗
+                Conoce sus canales
               </a>
             </div>
           </div>

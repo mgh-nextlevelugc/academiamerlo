@@ -66,7 +66,7 @@ export function AudienceTabs() {
           </h3>
           <p>{tab.body}</p>
           <a className="text-link" href="#programa">
-            Explora el método ↗
+            Explora el método
           </a>
         </div>
       ))}

@@ -16,23 +16,12 @@ function MediaRail({
   ariaLabel: string;
   links: readonly RailLink[];
 }) {
-  const { railRef, mediaRef, paused, togglePaused, hidden, prevDisabled, nextDisabled, move, onKeyDown } =
-    useRail();
+  const { railRef, mediaRef, hidden, prevDisabled, nextDisabled, move, onKeyDown } = useRail();
 
   return (
     <div className="media" ref={mediaRef}>
       <div className="media-head">
         <span className="label">{label}</span>
-        <button
-          type="button"
-          className="auto-toggle"
-          hidden={hidden}
-          aria-controls={id}
-          aria-label={`${paused ? "Reanudar" : "Pausar"} movimiento de ${ariaLabel}`}
-          onClick={togglePaused}
-        >
-          {paused ? "Reanudar movimiento" : "Pausar movimiento"}
-        </button>
         <div className={`arrows${hidden ? " is-hidden" : ""}`}>
           <button
             className="arrow"
