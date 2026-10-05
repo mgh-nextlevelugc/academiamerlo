@@ -24,7 +24,7 @@ export function Mentor() {
             <div className="mentor-copy">
               <p>
                 Su trabajo sigue las negociaciones, los protagonistas y las decisiones que
-                mueven el fútbol. Ahora, esa experiencia toma forma de curso.
+                mueven el fútbol. Ahora, esa experiencia toma forma de programa.
               </p>
               <p>
                 Aprende cómo aborda las fuentes, contrasta versiones y decide cuándo una

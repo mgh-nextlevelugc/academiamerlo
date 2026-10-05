@@ -39,7 +39,7 @@ export function Register() {
           <span className="label red">La próxima noticia puede ser tuya</span>
           <h2>El primer paso empieza aquí.</h2>
           <p>Súmate a la lista y recibe por email el aviso de apertura de Academia Merlo.</p>
-          <p className="form-note">Registrarte es gratis y no implica comprar el curso.</p>
+          <p className="form-note">Registrarte es gratis y no implica comprar el programa.</p>
         </div>
         <div
           className="tally-slot"

@@ -7,7 +7,7 @@ export const metadata: Metadata =
     ? {
         title: "Lista de espera",
         description:
-          "Súmate a la lista de espera de Academia Merlo y recibe el aviso de apertura del curso de periodismo en el mercado de pases con César Luis Merlo.",
+          "Súmate a la lista de espera de Academia Merlo y recibe el aviso de apertura del programa de periodismo en el mercado de pases con César Luis Merlo.",
       }
     : {
         title: "Inscripciones abiertas",

@@ -39,7 +39,7 @@ export function Hero({ mode }: { mode: PageMode }) {
                   Conoce el programa
                 </a>
               </div>
-              <p className="hero-note">Inscripciones abiertas · Curso online</p>
+              <p className="hero-note">Inscripciones abiertas · Programa online</p>
             </>
           )}
         </div>

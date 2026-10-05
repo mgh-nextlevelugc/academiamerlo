@@ -143,41 +143,41 @@ export const editorialPhrases = [
 export const faqWaitlist = [
   {
     q: "¿Necesito experiencia en periodismo?",
-    a: "No. El curso está pensado tanto para quienes quieren empezar como para quienes ya cubren fútbol y buscan especializarse. También puedes hacerlo si quieres entender mejor el mercado de pases.",
+    a: "No. El programa está pensado tanto para quienes quieren empezar como para quienes ya cubren fútbol y buscan especializarse. También puedes hacerlo si quieres entender mejor el mercado de pases.",
   },
   {
-    q: "¿Cómo se cursa?",
+    q: "¿Cómo funciona?",
     a: "Los módulos son grabados y puedes avanzar a tu ritmo. La modalidad VIP suma encuentros en vivo y espacios de consulta.",
   },
   {
     q: "¿Anotarme en la lista reserva una vacante?",
-    a: "La lista te permite recibir el aviso de apertura. No es una compra ni una inscripción al curso.",
+    a: "La lista te permite recibir el aviso de apertura. No es una compra ni una inscripción al programa.",
   },
   {
     q: "¿Cuándo voy a recibir novedades?",
-    a: "Te vamos a escribir cuando esté confirmada la apertura, con la información del curso y las opciones de inscripción.",
+    a: "Te vamos a escribir cuando esté confirmada la apertura, con la información del programa y las opciones de inscripción.",
   },
 ] as const;
 
 export const faqVenta = [
   {
     q: "¿Necesito experiencia en periodismo?",
-    a: "No. El curso está pensado tanto para quienes quieren empezar como para quienes ya cubren fútbol y buscan especializarse. También puedes hacerlo si quieres entender mejor el mercado de pases.",
+    a: "No. El programa está pensado tanto para quienes quieren empezar como para quienes ya cubren fútbol y buscan especializarse. También puedes hacerlo si quieres entender mejor el mercado de pases.",
   },
   {
-    q: "¿Cómo se cursa?",
+    q: "¿Cómo funciona?",
     a: "Los módulos son grabados y puedes avanzar a tu ritmo. La modalidad VIP suma encuentros en vivo y espacios de consulta.",
   },
   {
     q: "¿Hasta cuándo tengo acceso?",
-    a: "El acceso al curso es de por vida. Puedes volver a las clases y los materiales cuando lo necesites.",
+    a: "El acceso al programa es de por vida. Puedes volver a las clases y los materiales cuando lo necesites.",
   },
   {
     q: "¿Puedo pagar en cuotas?",
     a: "Las opciones disponibles dependen de tu país y del medio de pago. Puedes consultarlas en Hotmart antes de confirmar la compra.",
   },
   {
-    q: "¿Qué pasa si el curso no es para mí?",
+    q: "¿Qué pasa si el programa no es para mí?",
     a: "Tienes 7 días desde la compra para solicitar la devolución a través de Hotmart.",
   },
 ] as const;
@@ -191,15 +191,15 @@ export const courseFacts = [
 export const pricingPlans = [
   {
     id: "standard" as const,
-    label: "Curso completo",
+    label: "Programa completo",
     name: "Standard",
     price: "174",
     features: [
-      "Los 6 módulos del curso",
+      "Los 6 módulos del programa",
       "Materiales descargables y quizzes",
       "Acceso al Discord público",
       "Certificado firmado por César",
-      "Una actualización del curso por año",
+      "Una actualización del programa por año",
     ],
     cta: "Elegir Standard",
     vip: false,
