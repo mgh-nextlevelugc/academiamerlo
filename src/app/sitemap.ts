@@ -6,7 +6,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: SITE_URL, changeFrequency: "weekly", priority: 1 },
     { url: `${SITE_URL}/privacidad`, changeFrequency: "yearly", priority: 0.2 },
     { url: `${SITE_URL}/terminos`, changeFrequency: "yearly", priority: 0.2 },
-    { url: `${SITE_URL}/devoluciones`, changeFrequency: "yearly", priority: 0.2 },
   ];
 
   if (SITE_PHASE === "launch") {

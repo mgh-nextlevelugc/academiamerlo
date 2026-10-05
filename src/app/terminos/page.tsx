@@ -17,7 +17,7 @@ export default function TerminosPage() {
         {
           heading: "Quiénes somos",
           paragraphs: [
-            "Academia Merlo es el programa de periodismo en el mercado de pases de César Luis Merlo, producido por Roikon, una LLC registrada en el estado de Wyoming, Estados Unidos.",
+            "Academia Merlo es el programa de periodismo en el mercado de pases de César Luis Merlo, producido por Roikon, nombre comercial de Winnorts Group LLC, registrada en el estado de Wyoming, Estados Unidos.",
           ],
         },
         {
@@ -30,8 +30,7 @@ export default function TerminosPage() {
         {
           heading: "Cuando abran las inscripciones",
           paragraphs: [
-            "La venta del programa se procesa a través de Hotmart. Al comprar aceptas también las condiciones de esa plataforma, además de las que publiquemos aquí.",
-            "El precio, lo que incluye cada modalidad y las formas de pago disponibles son los que se muestren en el checkout al momento de la compra.",
+            "La venta del programa se procesa a través de Hotmart. El precio, lo que incluye cada modalidad, las formas de pago y las condiciones de devolución son las que se muestren en el checkout, y se rigen por los términos de esa plataforma.",
           ],
         },
         {

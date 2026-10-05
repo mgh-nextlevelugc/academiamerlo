@@ -17,7 +17,8 @@ export default function PrivacidadPage() {
         {
           heading: "Quiénes somos",
           paragraphs: [
-            "Academia Merlo es el programa de periodismo en el mercado de pases de César Luis Merlo, producido por Roikon, una LLC registrada en el estado de Wyoming, Estados Unidos.",
+            "Academia Merlo es el programa de periodismo en el mercado de pases de César Luis Merlo, producido por Roikon, nombre comercial de Winnorts Group LLC, registrada en el estado de Wyoming, Estados Unidos.",
+            "Esa es la empresa responsable de los datos que nos dejas.",
           ],
         },
         {

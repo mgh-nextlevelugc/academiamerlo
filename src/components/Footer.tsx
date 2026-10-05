@@ -54,8 +54,6 @@ export function Footer() {
           <Link href="/privacidad">Privacidad</Link>
           <span aria-hidden="true">·</span>
           <Link href="/terminos">Términos</Link>
-          <span aria-hidden="true">·</span>
-          <Link href="/devoluciones">Devoluciones</Link>
         </p>
       </div>
     </footer>
