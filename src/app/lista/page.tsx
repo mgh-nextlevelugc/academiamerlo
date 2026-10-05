@@ -9,7 +9,7 @@ import { SITE_PHASE } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Lista de espera",
   description:
-    "Sumate a la lista de espera de Academia Merlo y recibí el aviso de apertura del curso de periodismo en el mercado de pases con César Luis Merlo.",
+    "Súmate a la lista de espera de Academia Merlo y recibe el aviso de apertura del curso de periodismo en el mercado de pases con César Luis Merlo.",
   alternates: SITE_PHASE === "waitlist" ? { canonical: "/" } : undefined,
   robots: SITE_PHASE === "waitlist" ? { index: false, follow: true } : undefined,
 };

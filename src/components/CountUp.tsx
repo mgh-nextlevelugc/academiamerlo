@@ -3,13 +3,22 @@
 import { useEffect, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
-const esAr = new Intl.NumberFormat("es-AR");
+// Separador de miles ".", fijo, sin depender de un locale regional: la
+// audiencia es LATAM-wide (sobre todo México), donde Intl.NumberFormat
+// con "es-MX"/"es-419" usa coma — eso rompería el "1.000M+" que el brief
+// pide mantener exacto. Esto da el mismo resultado en cualquier entorno/
+// versión de Node, sin sorpresas de locale/ICU.
+function formatThousands(n: number) {
+  return Math.round(n)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
 
 /**
  * Count-up accesible para las cifras de audiencia (1.000M+ / 80M+ / 1M+):
- * arranca al entrar en viewport, formato es-AR, y respeta reduced-motion
- * mostrando el valor final de una. Siempre activo (no depende de
- * NEXT_PUBLIC_MOTION): es el mismo tipo de detalle que el ticker editorial.
+ * arranca al entrar en viewport y respeta reduced-motion mostrando el
+ * valor final de una. Siempre activo (no depende de NEXT_PUBLIC_MOTION):
+ * es el mismo tipo de detalle que el ticker editorial.
  */
 export function CountUp({
   value,
@@ -58,7 +67,7 @@ export function CountUp({
   return (
     <>
       <span ref={ref} aria-hidden="true">
-        {esAr.format(shown)}
+        {formatThousands(shown)}
         {suffix}
       </span>
       <span className="visually-hidden">{label}</span>

@@ -19,7 +19,7 @@ export function Mentor() {
             </figcaption>
           </figure>
           <div className="mentor-story">
-            <span className="label red">Aprendé con César</span>
+            <span className="label red">Aprende con César</span>
             <h2>César Luis Merlo. La información como oficio.</h2>
             <div className="mentor-copy">
               <p>
@@ -27,7 +27,7 @@ export function Mentor() {
                 mueven el fútbol. Ahora, esa experiencia toma forma de curso.
               </p>
               <p>
-                Aprendé cómo aborda las fuentes, contrasta versiones y decide cuándo una
+                Aprende cómo aborda las fuentes, contrasta versiones y decide cuándo una
                 información está lista para publicarse.
               </p>
               <p className="lema">«La noticia no se mancha.»</p>
@@ -37,7 +37,7 @@ export function Mentor() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Conocé sus canales ↗
+                Conoce sus canales ↗
               </a>
             </div>
           </div>

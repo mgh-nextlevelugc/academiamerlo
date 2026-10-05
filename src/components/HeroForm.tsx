@@ -8,7 +8,7 @@ export const TALLY_CONTINUE_EVENT = "academia-merlo:tally-continue";
  * Captura de email en el hero. Al enviar, notifica a <Register> (sección
  * #lista) por CustomEvent con el email para que monte/prefilee Tally, y
  * lleva el foco + scroll al tally-slot — igual que el script inline del
- * prototipo. Las dos áreas de estado (hero-status acá, el status del
+ * prototipo. Las dos áreas de estado (hero-status aquí, el status del
  * formulario en Register) son independientes, como en el HTML original.
  */
 export function HeroForm() {
@@ -19,7 +19,7 @@ export function HeroForm() {
     event.preventDefault();
     const value = email.trim();
     window.dispatchEvent(new CustomEvent(TALLY_CONTINUE_EVENT, { detail: { email: value } }));
-    setStatus("Continuá abajo: revisá tu email y completá el formulario para sumarte.");
+    setStatus("Continúa abajo: revisa tu email y completa el formulario para sumarte.");
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const slot = document.getElementById("tally-slot");

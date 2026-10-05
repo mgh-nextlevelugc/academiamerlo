@@ -16,7 +16,7 @@ export function Hero({ mode }: { mode: PageMode }) {
             </span>
           </h1>
           <p className="intro">
-            Aprendé con <strong>César Luis Merlo</strong> a construir fuentes, verificar
+            Aprende con <strong>César Luis Merlo</strong> a construir fuentes, verificar
             información y contar lo que otros todavía están tratando de entender.
           </p>
 
@@ -25,7 +25,7 @@ export function Hero({ mode }: { mode: PageMode }) {
               <HeroForm />
               <p className="hero-note">
                 Próxima apertura · Te avisamos por email · Registrarte es gratis ·{" "}
-                <a href="#programa">Conocé el programa</a>
+                <a href="#programa">Conoce el programa</a>
               </p>
             </>
           ) : (
@@ -36,7 +36,7 @@ export function Hero({ mode }: { mode: PageMode }) {
                   <small aria-hidden="true">↗</small>
                 </a>
                 <a className="text-link" href="#programa">
-                  Conocé el programa
+                  Conoce el programa
                 </a>
               </div>
               <p className="hero-note">Inscripciones abiertas · Curso online</p>

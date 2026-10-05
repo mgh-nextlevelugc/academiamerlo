@@ -10,10 +10,11 @@ export const metadata: Metadata = {
     template: "%s · Academia Merlo",
   },
   description:
-    "Periodismo en el mercado de pases con César Luis Merlo. Aprendé a construir fuentes, verificar información y publicar con criterio.",
+    "Periodismo en el mercado de pases con César Luis Merlo. Aprende a construir fuentes, verificar información y publicar con criterio.",
   openGraph: {
     siteName: "Academia Merlo",
-    locale: "es_AR",
+    // Audiencia LATAM-wide, sobre todo México — es_MX en vez de es_AR.
+    locale: "es_MX",
     type: "website",
   },
   twitter: {
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es-AR" className={`${archivo.variable} ${sourceSans3.variable}`}>
+    <html lang="es" className={`${archivo.variable} ${sourceSans3.variable}`}>
       <body>{children}</body>
     </html>
   );

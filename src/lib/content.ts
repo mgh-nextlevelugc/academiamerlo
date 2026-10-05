@@ -7,20 +7,20 @@ export const journeyModules = [
     title: "Fundamentos",
     waitlist: "Cómo se mueve el mercado y quién decide.",
     venta:
-      "Entendé cómo se mueve el mercado. Quién participa, quién decide y qué hay detrás de cada negociación.",
+      "Entiende cómo se mueve el mercado. Quién participa, quién decide y qué hay detrás de cada negociación.",
   },
   {
     n: "02",
     title: "Credibilidad",
-    waitlist: "Rumor no es información: cuidá tu palabra.",
+    waitlist: "Rumor no es información: cuida tu palabra.",
     venta:
-      "Distinguí un rumor de una información. Aprendé a contrastar y a cuidar lo más valioso: tu palabra.",
+      "Distingue un rumor de una información. Aprende a contrastar y a cuidar lo más valioso: tu palabra.",
   },
   {
     n: "03",
     title: "Fuentes",
-    waitlist: "Construí y protegé tu red propia.",
-    venta: "Construí, cultivá y protegé una red propia de contactos.",
+    waitlist: "Construye y protege tu red propia.",
+    venta: "Construye, cultiva y protege una red propia de contactos.",
   },
   {
     n: "04",
@@ -34,7 +34,7 @@ export const journeyModules = [
     title: "Marca",
     waitlist: "Tu marca personal y tu comunidad.",
     venta:
-      "Construí tu marca personal: posicionamiento, credibilidad y cómo leer a tu comunidad sin obedecerla.",
+      "Construye tu marca personal: posicionamiento, credibilidad y cómo leer a tu comunidad sin obedecerla.",
   },
   {
     n: "06",
@@ -115,22 +115,22 @@ export const audienceTabs = [
     id: "periodismo",
     tab: "Periodismo",
     kicker: "Periodistas y creadores",
-    title: "Que tu próxima historia\nempiece con vos.",
-    body: "Querés empezar, ya cubrís fútbol o tenés tu propio canal. Aprendé a construir fuentes y a decidir qué información está lista para publicarse.",
+    title: "Que tu próxima historia\nempiece contigo.",
+    body: "Quieres empezar, ya cubres fútbol o tienes tu propio canal. Aprende a construir fuentes y a decidir qué información está lista para publicarse.",
   },
   {
     id: "analisis",
     tab: "Análisis",
     kicker: "Analistas y apostadores",
     title: "Más contexto.\nMejores preguntas.",
-    body: "Seguís estadísticas, analizás partidos o apostás y querés entender de dónde sale la información que circula. Conocé el método periodístico para contrastar versiones y leer el mercado con criterio.",
+    body: "Sigues estadísticas, analizas partidos o apuestas y quieres entender de dónde sale la información que circula. Conoce el método periodístico para contrastar versiones y leer el mercado con criterio.",
   },
   {
     id: "fans",
     tab: "Fans",
     kicker: "Fans del fútbol",
-    title: "Viví el mercado\ndesde otro lugar.",
-    body: "Seguís cada ventana, debatís cada pase y querés entender qué hay detrás de un rumor. Entrá en la lógica de las fuentes, los tiempos y las negociaciones.",
+    title: "Vive el mercado\ndesde otro lugar.",
+    body: "Sigues cada ventana, debates cada pase y quieres entender qué hay detrás de un rumor. Entra en la lógica de las fuentes, los tiempos y las negociaciones.",
   },
 ] as const;
 
@@ -143,11 +143,11 @@ export const editorialPhrases = [
 export const faqWaitlist = [
   {
     q: "¿Necesito experiencia en periodismo?",
-    a: "No. El curso está pensado tanto para quienes quieren empezar como para quienes ya cubren fútbol y buscan especializarse. También podés hacerlo si querés entender mejor el mercado de pases.",
+    a: "No. El curso está pensado tanto para quienes quieren empezar como para quienes ya cubren fútbol y buscan especializarse. También puedes hacerlo si quieres entender mejor el mercado de pases.",
   },
   {
     q: "¿Cómo se cursa?",
-    a: "Los módulos son grabados y podés avanzar a tu ritmo. La modalidad VIP suma encuentros en vivo y espacios de consulta.",
+    a: "Los módulos son grabados y puedes avanzar a tu ritmo. La modalidad VIP suma encuentros en vivo y espacios de consulta.",
   },
   {
     q: "¿Anotarme en la lista reserva una vacante?",
@@ -162,23 +162,23 @@ export const faqWaitlist = [
 export const faqVenta = [
   {
     q: "¿Necesito experiencia en periodismo?",
-    a: "No. El curso está pensado tanto para quienes quieren empezar como para quienes ya cubren fútbol y buscan especializarse. También podés hacerlo si querés entender mejor el mercado de pases.",
+    a: "No. El curso está pensado tanto para quienes quieren empezar como para quienes ya cubren fútbol y buscan especializarse. También puedes hacerlo si quieres entender mejor el mercado de pases.",
   },
   {
     q: "¿Cómo se cursa?",
-    a: "Los módulos son grabados y podés avanzar a tu ritmo. La modalidad VIP suma encuentros en vivo y espacios de consulta.",
+    a: "Los módulos son grabados y puedes avanzar a tu ritmo. La modalidad VIP suma encuentros en vivo y espacios de consulta.",
   },
   {
     q: "¿Hasta cuándo tengo acceso?",
-    a: "El acceso al curso es de por vida. Podés volver a las clases y los materiales cuando lo necesites.",
+    a: "El acceso al curso es de por vida. Puedes volver a las clases y los materiales cuando lo necesites.",
   },
   {
     q: "¿Puedo pagar en cuotas?",
-    a: "Las opciones disponibles dependen de tu país y del medio de pago. Podés consultarlas en Hotmart antes de confirmar la compra.",
+    a: "Las opciones disponibles dependen de tu país y del medio de pago. Puedes consultarlas en Hotmart antes de confirmar la compra.",
   },
   {
     q: "¿Qué pasa si el curso no es para mí?",
-    a: "Tenés 7 días desde la compra para solicitar la devolución a través de Hotmart.",
+    a: "Tienes 7 días desde la compra para solicitar la devolución a través de Hotmart.",
   },
 ] as const;
 

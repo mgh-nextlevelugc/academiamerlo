@@ -95,11 +95,11 @@ export function useTallyEmbed(formId: string) {
       loadWidget()
         .then(() => window.Tally?.loadEmbeds?.())
         .catch(() => {
-          setStatus("No pudimos cargar el formulario. Podés abrirlo en otra pestaña.");
+          setStatus("No pudimos cargar el formulario. Puedes abrirlo en otra pestaña.");
         });
 
       loadTimerRef.current = window.setTimeout(() => {
-        setStatus("Si el formulario no aparece, podés abrirlo en otra pestaña.");
+        setStatus("Si el formulario no aparece, puedes abrirlo en otra pestaña.");
       }, 12000);
     },
     [configured, formURL, loadWidget],

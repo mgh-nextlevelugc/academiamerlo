@@ -7,7 +7,7 @@ export default function DevolucionesPage() {
   return (
     <LegalPlaceholder
       title="Política de devoluciones"
-      description="Academia Merlo se vende a través de Hotmart, que ofrece garantía de devolución de 7 días desde la compra. Acá va a vivir el detalle del proceso: cómo pedirla y en cuánto tiempo se resuelve."
+      description="Academia Merlo se vende a través de Hotmart, que ofrece garantía de devolución de 7 días desde la compra. Aquí va a vivir el detalle del proceso: cómo pedirla y en cuánto tiempo se resuelve."
     />
   );
 }

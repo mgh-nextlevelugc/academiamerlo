@@ -37,7 +37,7 @@ function PlanCard({ plan }: { plan: (typeof pricingPlans)[number] }) {
           data-checkout={plan.name}
           onClick={() =>
             setPendingMessage(
-              `Vista de prueba: acá se abrirá el checkout de Hotmart del plan ${plan.name}. El enlace definitivo está pendiente.`,
+              `Vista de prueba: aquí se abrirá el checkout de Hotmart del plan ${plan.name}. El enlace definitivo está pendiente.`,
             )
           }
         >
@@ -56,9 +56,9 @@ export function Pricing() {
     <section className="section rule" id="planes">
       <div className="wrap">
         <div className="section-head">
-          <span className="label red">Elegí cómo querés aprender</span>
+          <span className="label red">Elige cómo quieres aprender</span>
           <h2>El mismo método. Dos formas de vivirlo.</h2>
-          <p>Estudiá a tu ritmo con Standard o sumá encuentros en vivo y feedback de César con VIP.</p>
+          <p>Estudia a tu ritmo con Standard o suma encuentros en vivo y feedback de César con VIP.</p>
         </div>
         <div className="pricing">
           {pricingPlans.map((plan) => (
@@ -66,7 +66,7 @@ export function Pricing() {
           ))}
         </div>
         <p className="guarantee">
-          <strong>¿No sabés cuál elegir?</strong> Standard es el método completo. VIP es el
+          <strong>¿No sabes cuál elegir?</strong> Standard es el método completo. VIP es el
           método con César revisando tu trabajo.
         </p>
         <p className="guarantee">Pago a través de Hotmart · Garantía de devolución de 7 días</p>

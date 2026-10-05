@@ -37,8 +37,8 @@ export function Register() {
       <div className="wrap register-grid">
         <div>
           <span className="label red">La próxima noticia puede ser tuya</span>
-          <h2>El primer paso empieza acá.</h2>
-          <p>Sumate a la lista y recibí por email el aviso de apertura de Academia Merlo.</p>
+          <h2>El primer paso empieza aquí.</h2>
+          <p>Súmate a la lista y recibe por email el aviso de apertura de Academia Merlo.</p>
           <p className="form-note">Registrarte es gratis y no implica comprar el curso.</p>
         </div>
         <div
@@ -58,7 +58,7 @@ export function Register() {
                 name="nombre"
                 type="text"
                 autoComplete="given-name"
-                placeholder="¿Cómo te llamás?"
+                placeholder="¿Cómo te llamas?"
                 required
                 maxLength={100}
               />
