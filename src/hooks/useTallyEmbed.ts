@@ -2,7 +2,16 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+// Coinciden con los hidden fields del form aQ8N92. "ref" va aparte de los
+// utm_* porque el form lo captura como campo propio.
+const PASSTHROUGH_KEYS = [
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_content",
+  "utm_term",
+  "ref",
+];
 
 declare global {
   interface Window {
@@ -45,7 +54,7 @@ export function useTallyEmbed(formId: string) {
       if (email) url.searchParams.set("email", email);
       if (typeof window !== "undefined") {
         const query = new URLSearchParams(window.location.search);
-        UTM_KEYS.forEach((key) => {
+        PASSTHROUGH_KEYS.forEach((key) => {
           if (query.has(key)) url.searchParams.set(key, query.get(key)!);
         });
       }

@@ -4400,3 +4400,59 @@ details[open] p {
   color: inherit;
   display: inline;
 }
+
+
+/* --- Sugerencia de typo de dominio bajo el campo de email del hero.
+   min-height reserva el alto de una linea para que aparecer y desaparecer
+   no empuje el resto del hero. --- */
+/* height fijo + flex en vez de min-height: el contenedor heredaba el
+   line-height del form (19px * 1.55 = 29.4px) y la caja de linea superaba
+   el alto reservado, dejando un salto de 3.4px al aparecer la sugerencia. */
+.hero-form .hero-suggestion {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  margin-top: 2px;
+}
+/* En la grilla de 2 columnas (>1000px) el input y el boton comparten fila y
+   la sugerencia va debajo, aunque en el DOM la sugerencia viene antes del
+   boton para que el orden de tabulacion sea input -> correccion -> enviar. */
+@media (min-width: 1001px) {
+  .hero-form input {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .hero-form .btn {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .hero-form .hero-suggestion {
+    grid-row: 2;
+  }
+  .hero-form .status {
+    grid-row: 3;
+  }
+}
+.hero-form .hero-suggestion-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--muted);
+  cursor: pointer;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.hero-form .hero-suggestion-btn strong {
+  color: var(--green);
+  font-weight: 600;
+}
+.hero-form .hero-suggestion-btn:hover strong {
+  text-decoration: underline;
+}
+.hero-form .btn[aria-busy="true"] {
+  opacity: 0.75;
+}
