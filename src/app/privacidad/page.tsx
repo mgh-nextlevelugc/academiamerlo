@@ -4,7 +4,7 @@ import { LegalPage } from "@/components/LegalPage";
 export const metadata: Metadata = {
   title: "Privacidad",
   description:
-    "Qué datos pedimos en la lista de espera de Academia Merlo, para qué los usamos y cómo darte de baja.",
+    "Qué datos pide Academia Merlo, para qué los usa y cómo pedir el acceso, la corrección o la baja.",
 };
 
 export default function PrivacidadPage() {
@@ -12,39 +12,39 @@ export default function PrivacidadPage() {
     <LegalPage
       title="Política de privacidad"
       lastUpdated="Última actualización: 5 de octubre de 2026"
-      intro="Academia Merlo pide pocos datos y los usa para una sola cosa: avisarte cuando abra el programa. Esta página explica eso en concreto."
+      intro="Academia Merlo pide pocos datos y los usa para comunicarse contigo sobre el programa. Esta página explica cuáles, para qué y cómo pedir que los demos de baja."
       sections={[
         {
           heading: "Quiénes somos",
           paragraphs: [
-            "Academia Merlo es el programa de periodismo en el mercado de pases de César Luis Merlo, producido por Roikon, nombre comercial de Winnorts Group LLC, registrada en el estado de Wyoming, Estados Unidos.",
-            "Esa es la empresa responsable de los datos que nos dejas.",
+            "Academia Merlo es el programa de periodismo en el mercado de pases de César Luis Merlo, producido por Roikon, con sede en el estado de Wyoming, Estados Unidos.",
           ],
         },
         {
           heading: "Qué datos pedimos",
           paragraphs: [
-            "Al anotarte en la lista de espera te pedimos tu email y algunos datos básicos para saber quién nos escribe: nombre, país y en qué perfil te reconoces.",
-            "No pedimos datos de pago, documentos ni información sensible. Mientras el programa no esté abierto, no hay ninguna compra de por medio.",
+            "Para recibir noticias del programa te pedimos tu email y algunos datos básicos para saber quién nos escribe: nombre, país y en qué perfil te reconoces.",
+            "Si te inscribes, el pago lo procesa Hotmart. Nosotros no pedimos ni almacenamos datos de tarjetas: esos quedan en manos de la plataforma de pago.",
+            "No pedimos documentos ni información sensible.",
           ],
         },
         {
           heading: "Para qué los usamos",
           paragraphs: [
-            "Para comunicarnos contigo sobre Academia Merlo: el aviso de apertura y las novedades del programa. No los usamos para ninguna otra finalidad.",
-            "No vendemos ni cedemos tus datos a terceros para que te ofrezcan sus productos.",
+            "Para comunicarnos contigo sobre Academia Merlo: novedades del programa, apertura de inscripciones y, si te inscribes, lo necesario para darte acceso y acompañarte durante la cursada.",
+            "No los usamos para ninguna otra finalidad, y no vendemos ni cedemos tus datos a terceros para que te ofrezcan sus productos.",
           ],
         },
         {
           heading: "Con quién los compartimos",
           paragraphs: [
-            "Solo con los servicios que hacen funcionar esto: la herramienta donde vive el formulario y el servicio que envía los emails. Acceden a tus datos únicamente para prestarnos ese servicio.",
+            "Solo con los servicios que hacen funcionar el programa: la herramienta donde vive el formulario, el servicio que envía los emails y la plataforma que procesa los pagos y da acceso al contenido. Acceden a tus datos únicamente para prestarnos ese servicio.",
           ],
         },
         {
           heading: "Cuánto tiempo los guardamos",
           paragraphs: [
-            "Los conservamos mientras quieras seguir recibiendo noticias nuestras. Si pides la baja, dejamos de escribirte y damos de baja tu dirección.",
+            "Conservamos tus datos mientras quieras seguir recibiendo noticias nuestras o mientras dure tu acceso al programa. Si pides la baja, dejamos de escribirte.",
           ],
         },
         {
@@ -56,7 +56,7 @@ export default function PrivacidadPage() {
         {
           heading: "Menores",
           paragraphs: [
-            "La lista está pensada para personas mayores de 18 años. Si detectamos un registro de un menor sin autorización de quien ejerce su cuidado, lo damos de baja.",
+            "El programa está pensado para personas mayores de 18 años. Si detectamos un registro de un menor sin autorización de quien ejerce su cuidado, lo damos de baja.",
           ],
         },
         {
