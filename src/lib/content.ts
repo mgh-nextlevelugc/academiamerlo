@@ -88,10 +88,16 @@ export const trayectoriaLinks = [
     name: "Superdeportivo",
     note: "Autor",
   },
+  // Olé y Radio La Red van sin href: no se encontró una página de autor ni
+  // una nota firmada para enlazar. Si aparecen, agregar el href acá y
+  // devolver la frase "Cada nombre enlaza a una fuente" a la media-note.
   {
-    href: "https://www.encancha.cl/autor/cesar-luis-merlo/",
-    name: "En Cancha",
-    note: "Autor",
+    name: "Olé",
+    note: "Trayectoria",
+  },
+  {
+    name: "Radio La Red",
+    note: "Trayectoria",
   },
 ] as const;
 
@@ -111,6 +117,16 @@ export const citadoPorLinks = [
     name: "FOX Sports",
     note: "Citó su información",
   },
+] as const;
+
+// Verificados uno por uno. Ojo: el link de YouTube que figura hoy en el
+// linktree de César (@cesarluismerlo3493) devuelve 404; el canal vivo es
+// @cesarluismerloCLM.
+export const cesarSocials = [
+  { name: "Instagram", href: "https://www.instagram.com/clmerlo5/" },
+  { name: "X", href: "https://x.com/clmerlo" },
+  { name: "YouTube", href: "https://www.youtube.com/@cesarluismerloCLM" },
+  { name: "TikTok", href: "https://www.tiktok.com/@clmerlo5" },
 ] as const;
 
 export const audienceTabs = [

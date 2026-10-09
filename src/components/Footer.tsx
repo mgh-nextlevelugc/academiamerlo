@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { cesarSocials } from "@/lib/content";
 
 export function Footer() {
   return (
@@ -15,13 +16,28 @@ export function Footer() {
               sizes="190px"
             />
           </a>
-          <p>
-            Periodismo en el Mercado de Pases
-            <br />
-            con César Luis Merlo
-            <br />
-            <em>«La noticia no se mancha.»</em>
-          </p>
+          <div className="footer-about">
+            <p>
+              Periodismo en el Mercado de Pases
+              <br />
+              con César Luis Merlo
+              <br />
+              <em>«La noticia no se mancha.»</em>
+            </p>
+            <div className="social-links">
+              {cesarSocials.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`César Luis Merlo en ${social.name}`}
+                >
+                  {social.name}
+                </a>
+              ))}
+            </div>
+          </div>
           <div className="credits">
             <span>Producido por</span>
             <div className="producer-logos">
@@ -36,7 +52,12 @@ export function Footer() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/roikon-logo.svg" alt="Roikon" width={112} height={30} />
               </a>
-              <span>
+              <a
+                href="https://www.instagram.com/tedejoenorsai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Te Dejo en Orsai en Instagram"
+              >
                 <Image
                   className="tdeo-logo"
                   src="/tdeo-logo.png"
@@ -45,7 +66,7 @@ export function Footer() {
                   height={100}
                   sizes="76px"
                 />
-              </span>
+              </a>
             </div>
             <small>© {new Date().getFullYear()} Academia Merlo</small>
           </div>
