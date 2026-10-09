@@ -3579,20 +3579,8 @@ footer .tdeo-logo {
   overflow: hidden;
   display: block;
   padding: 15px 0;
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent,
-    #000 6%,
-    #000 94%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    #000 6%,
-    #000 94%,
-    transparent
-  );
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
 .band-track {
   display: inline-flex;
@@ -3853,20 +3841,8 @@ details[open] p {
 }
 .band-viewport {
   overflow: hidden;
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    #000 4%,
-    #000 96%,
-    transparent
-  );
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent,
-    #000 4%,
-    #000 96%,
-    transparent
-  );
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 }
 .band-pause {
   right: 15px;
@@ -4366,7 +4342,6 @@ details[open] p {
   }
 }
 
-
 /* --- Next.js: fix de recorte del isologo en el nav (bug documentado en el
    addendum v3.4 del prototipo: el isologo usaba object-fit:cover a 240x104,
    que recorta el lockup). Mantiene el .footer .brand img de composicion-v32,
@@ -4382,7 +4357,6 @@ details[open] p {
     height: 64px;
   }
 }
-
 
 /* --- Next.js: la cifra de audiencia vive dentro de spans.
    En el prototipo el markup era <strong>1.000M+</strong>, texto plano. El
@@ -4400,7 +4374,6 @@ details[open] p {
   color: inherit;
   display: inline;
 }
-
 
 /* --- Sugerencia de typo de dominio bajo el campo de email del hero.
    min-height reserva el alto de una linea para que aparecer y desaparecer
@@ -4457,80 +4430,179 @@ details[open] p {
   opacity: 0.75;
 }
 
-
-/* --- Control de pausa de los rails: mismo lenguaje que las flechas pero
-   mas chico, para que el bloque no cargue con un boton de texto. --- */
-.media-head .arrows {
-  flex-basis: auto;
-  align-items: center;
+/* --- Banda de medios: una cinta que corre, no un carrusel por saltos.
+   El avance por pasos dependia del desborde de la fila, asi que al achicar
+   los items dejaba de desbordar y la banda se quedaba quieta; y con tres
+   nombres ("citados") no se movia nunca. Esto es el mismo mecanismo de la
+   cinta editorial: dos vueltas identicas de la lista y translateX(-50%) en
+   bucle, que cierra sin costura con la cantidad de items que haya. --- */
+.media-strip {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 0 2px;
+  /* Los extremos se desvanecen en vez de cortarse en seco: es lo que hace que
+     se lea como algo que pasa y no como una lista recortada. */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
-.media-head .arrow-pause {
-  width: 34px;
-  height: 34px;
-  flex: 0 0 34px;
-  font-size: 10px;
-  line-height: 1;
+.media-strip:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+.media-track {
+  display: flex;
+  width: max-content;
+  align-items: flex-start;
+  animation: media-strip-scroll var(--strip-seconds, 40s) linear infinite;
+  will-change: transform;
+}
+.media-track[data-reverse] {
+  animation-direction: reverse;
+}
+@keyframes media-strip-scroll {
+  to {
+    /* El desplazamiento es exactamente una vuelta, medido en el cliente. El
+       -50% es el valor valido del primer frame, cuando todavia se rinden dos
+       vueltas y media pista es justo una vuelta. */
+    transform: translateX(calc(-1 * var(--strip-shift, 50%)));
+  }
+}
+/* Se detiene con hover y con foco dentro para poder leer y hacer clic. */
+.media-strip:hover .media-track,
+.media-strip:focus-within .media-track {
+  animation-play-state: paused;
+}
+/* Detenida a mano no es una cinta congelada: pasa a una sola vuelta, sin
+   animacion y con scroll propio, para que ningun nombre quede fuera de
+   alcance. Lo mismo vale para prefers-reduced-motion. */
+.media-strip[data-paused] {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.media-strip[data-paused]::-webkit-scrollbar {
+  display: none;
+}
+.media-strip[data-paused] .media-track {
+  animation: none;
+  transform: none;
 }
 
-
-/* --- Banda de medios: devolverle presencia.
-   El `opacity:.62` en reposo viene de la capa v3, cuando los rails vivían
-   sobre la sección oscura y un blanco al 62% seguía leyéndose fuerte.
-   composicion-v32 los mudó a fondo claro y recoloreó el texto a --ink, pero
-   esa opacidad quedó viva: verde oscuro al 62% sobre #e8eee5 es lo que hacía
-   ver toda la banda apagada. Se queda el realce al hover, pero partiendo de
-   opacidad plena. --- */
-.media-section .rail a {
+/* Los wordmarks siguen sin caja: fue una decision explicita de v3 ("sliders:
+   wordmarks limpios, sin cajas"). Lo que cambia es el tamano y el aire, mas
+   chicos y con una separacion constante, en vez del 36% de ancho minimo que
+   dejaba cada nombre flotando en un hueco enorme.
+   La separacion tiene que ser igual en todos, incluido el ultimo: si al
+   ultimo se le quitara el margen las dos vueltas medirian distinto y el
+   translateX(-50%) daria un salto en cada ciclo. */
+.media-track a {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 2px 26px 2px 0;
+  margin-right: 26px;
+  border-right: 1px solid #c2d0bd;
   opacity: 1;
+  text-decoration: none;
 }
-.media-section .rail a b {
+.media-track[data-sparse] a {
+  padding-right: 40px;
+  margin-right: 40px;
+}
+.media-track a b {
+  font:
+    800 21px var(--font-archivo),
+    sans-serif;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: var(--ink);
+  white-space: nowrap;
   transition: color 0.2s;
 }
-.media-section .rail a:hover b,
-.media-section .rail a:focus-visible b {
+.media-track a span {
+  font-family: var(--font-source-sans), sans-serif;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.media-track a:hover b,
+.media-track a:focus-visible b {
   color: var(--green);
 }
 
+/* El control de pausa, en el mismo lenguaje que tenian las flechas pero mas
+   chico: el bloque no deberia cargar con un boton de texto. No es decorativo,
+   lo pide WCAG 2.2.2 para cualquier cosa que se mueva sola mas de cinco
+   segundos. */
+.media-head .strip-pause {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #a3b49b;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 10px;
+  line-height: 1;
+  cursor: pointer;
+}
+.media-head .strip-pause:hover {
+  background: #d7e2d1;
+}
 
 /* --- La banda como panel, no como franja.
-   Era el único rectángulo a sangre completa con bordes duros de toda la
-   página, donde el resto son tarjetas redondeadas (el retrato, el slot del
+   Era el unico rectangulo a sangre completa con bordes duros de toda la
+   pagina, donde el resto son tarjetas redondeadas (el retrato, el slot del
    formulario, los planes, la muestra de descargables). Ahora se alinea al
-   ancho de la columna de contenido y usa el mismo radio de tarjeta, así
-   deja de leerse como un bloque pegado de otro sitio.
-   Los wordmarks siguen sin caja: eso fue una decisión explícita de v3
-   ("sliders: wordmarks limpios, sin cajas") y se respeta. --- */
+   ancho de la columna de contenido y usa el mismo radio de tarjeta, asi deja
+   de leerse como un bloque pegado de otro sitio. --- */
 .media-section {
   width: min(1280px, calc(100% - 96px));
   margin-inline: auto;
   border: 0;
   border-radius: var(--radius-card);
-  padding: 30px 36px 28px;
+  padding: 26px 36px 24px;
 }
 .media-section > .wrap {
   width: 100%;
 }
-/* Items más chicos: entran cuatro por pantalla en vez de menos de tres. */
-.media-section .rail a,
-.media-section #citados a {
-  min-width: 0;
-  flex-basis: auto;
-  margin-right: 20px;
-  padding: 6px 20px 6px 0;
-}
-.media-section .rail a b {
-  font-size: 21px;
-}
 @media (max-width: 680px) {
   .media-section {
     width: calc(100% - 40px);
-    padding: 24px 20px 22px;
+    padding: 22px 20px 20px;
   }
-  .media-section .rail a b {
+  .media-track a {
+    padding-right: 20px;
+    margin-right: 20px;
+  }
+  .media-track[data-sparse] a {
+    padding-right: 30px;
+    margin-right: 30px;
+  }
+  .media-track a b {
     font-size: 19px;
   }
+  .media-head .strip-pause {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+  }
+  /* El prototipo hacia envolver el encabezado para que el grupo de flechas
+     (96px de ancho fijo) cayera a su propia linea. Con un solo boton de 36px
+     no hace falta: envolver dejaba el control solo en una linea vacia. */
+  .media-section .media-head {
+    flex-wrap: nowrap;
+  }
+  .media-section .media-head .label {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
 }
-
 
 /* --- Redes de César en el footer --- */
 .footer .social-links {
@@ -4547,7 +4619,6 @@ details[open] p {
 .footer .social-links a:hover {
   color: var(--ink);
 }
-
 
 /* --- Páginas legales --- */
 .legal .wrap {
@@ -4596,7 +4667,6 @@ details[open] p {
     margin-top: 28px;
   }
 }
-
 
 /* --- Enlaces legales del footer --- */
 .footer .footer-legal {
