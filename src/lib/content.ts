@@ -88,16 +88,19 @@ export const trayectoriaLinks = [
     name: "Superdeportivo",
     note: "Autor",
   },
-  // Olé y Radio La Red van sin href: no se encontró una página de autor ni
-  // una nota firmada para enlazar. Si aparecen, agregar el href acá y
-  // devolver la frase "Cada nombre enlaza a una fuente" a la media-note.
+  // Olé y Radio La Red enlazan al sitio del medio, no a una nota firmada:
+  // la trayectoria la confirmó César, pero no hay una página de autor suya
+  // en ninguno de los dos para apuntar. Por eso la nota al pie ya no dice
+  // "cada nombre enlaza a una fuente".
   {
+    href: "https://www.ole.com.ar",
     name: "Olé",
-    note: "Trayectoria",
+    note: "Colaboración",
   },
   {
+    href: "https://www.lared.am",
     name: "Radio La Red",
-    note: "Trayectoria",
+    note: "Colaboración",
   },
 ] as const;
 

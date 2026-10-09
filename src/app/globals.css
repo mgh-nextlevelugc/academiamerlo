@@ -4473,51 +4473,22 @@ details[open] p {
 }
 
 
-/* --- Item de rail sin link: mismas cajas que los <a>, sin el hover ni el
-   cambio de opacidad que sugieren que se puede clickear. --- */
-.rail .rail-item {
-  flex: 0 0 auto;
-  min-width: 0;
-  padding: 8px 34px 8px 0;
-  margin-right: 34px;
-  border-right: 1px solid #303a34;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 8px;
-  opacity: 0.62;
-  scroll-snap-align: start;
+/* --- Banda de medios: devolverle presencia.
+   El `opacity:.62` en reposo viene de la capa v3, cuando los rails vivían
+   sobre la sección oscura y un blanco al 62% seguía leyéndose fuerte.
+   composicion-v32 los mudó a fondo claro y recoloreó el texto a --ink, pero
+   esa opacidad quedó viva: verde oscuro al 62% sobre #e8eee5 es lo que hacía
+   ver toda la banda apagada. Se queda el realce al hover, pero partiendo de
+   opacidad plena. --- */
+.media-section .rail a {
+  opacity: 1;
 }
-.rail .rail-item:last-child {
-  border-right: 0;
-  margin-right: 0;
-  padding-right: 0;
+.media-section .rail a b {
+  transition: color 0.2s;
 }
-.rail .rail-item b {
-  font:
-    800 clamp(27px, 2.7vw, 40px) / 1 var(--font-archivo),
-    sans-serif;
-  letter-spacing: -0.045em;
-  white-space: nowrap;
-}
-.rail .rail-item span {
-  font:
-    600 10px / 1.2 var(--font-source-sans),
-    sans-serif;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #939c93;
-  white-space: nowrap;
-}
-@media (max-width: 680px) {
-  .rail .rail-item {
-    padding-right: 22px;
-    margin-right: 22px;
-  }
-  .rail .rail-item b {
-    font-size: 24px;
-  }
+.media-section .rail a:hover b,
+.media-section .rail a:focus-visible b {
+  color: var(--green);
 }
 
 

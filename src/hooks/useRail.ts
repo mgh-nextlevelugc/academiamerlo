@@ -42,17 +42,18 @@ export function useRail() {
     return Math.max(0, el.scrollWidth - el.clientWidth);
   }, []);
 
-  const positions = useCallback(() => {
+  /** Offsets donde arranca cada hijo, sin recortar al máximo de scroll. */
+  const childStarts = useCallback(() => {
     const el = railRef.current;
     if (!el) return [0];
     const origin = el.getBoundingClientRect().left;
     const unique = new Set<number>();
     Array.from(el.children).forEach((child) => {
       const rect = (child as HTMLElement).getBoundingClientRect();
-      unique.add(Math.min(max(), Math.round(rect.left - origin + el.scrollLeft)));
+      unique.add(Math.round(rect.left - origin + el.scrollLeft));
     });
-    return [...unique];
-  }, [max]);
+    return [...unique].sort((a, b) => a - b);
+  }, []);
 
   const move = useCallback(
     (dir: 1 | -1, loop = false) => {
@@ -60,13 +61,23 @@ export function useRail() {
       if (!el) return;
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const x = el.scrollLeft;
-      const ps = positions();
-      let target =
-        dir > 0 ? ps.find((p) => p > x + 3) : [...ps].reverse().find((p) => p < x - 3);
-      if (target === undefined) target = loop && dir > 0 ? 0 : dir > 0 ? max() : 0;
-      el.scrollTo({ left: target, behavior: reduced ? "instant" : "smooth" });
+      const limit = max();
+      const starts = childStarts();
+
+      let target: number | undefined;
+      if (dir > 0) {
+        // En el auto-avance solo valen posiciones donde un item queda
+        // alineado a la izquierda. Antes se recortaba al tope del scroll, y
+        // ese descanso deja el primer item visible cortado por la mitad.
+        target = starts.find((p) => p > x + 3 && (!loop || p <= limit));
+        if (target === undefined) target = loop ? 0 : limit;
+      } else {
+        target = [...starts].reverse().find((p) => p < x - 3);
+        if (target === undefined) target = 0;
+      }
+      el.scrollTo({ left: Math.min(target, limit), behavior: reduced ? "instant" : "smooth" });
     },
-    [positions, max],
+    [childStarts, max],
   );
 
   const sync = useCallback(() => {
