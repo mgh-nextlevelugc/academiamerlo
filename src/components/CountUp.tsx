@@ -30,6 +30,10 @@ export function CountUp({ value, suffix }: { value: number; suffix: string }) {
 
   useEffect(() => {
     if (reducedMotion) return;
+    // Con valores chicos el conteo no aporta y además se rompe: de 0 a 1 el
+    // redondeo muestra "0M+" durante media animación. "1M+" se lee igual de
+    // bien quieto.
+    if (value < 10) return;
     const el = ref.current;
     if (!el) return;
     let raf = 0;
@@ -37,13 +41,15 @@ export function CountUp({ value, suffix }: { value: number; suffix: string }) {
       (entries) => {
         if (!entries[0]?.isIntersecting) return;
         io.disconnect();
-        setDisplay(0);
+        // Nunca por debajo de 1: arrancar en 0 hacía que la cifra parpadeara
+        // como "0M+" en el primer frame, que se lee como un dato vacío.
+        setDisplay(1);
         const duration = 900;
         const start = performance.now();
         const step = (now: number) => {
           const t = Math.min(1, (now - start) / duration);
           const eased = 1 - Math.pow(1 - t, 3);
-          setDisplay(Math.round(value * eased));
+          setDisplay(Math.max(1, Math.round(value * eased)));
           if (t < 1) raf = requestAnimationFrame(step);
         };
         raf = requestAnimationFrame(step);

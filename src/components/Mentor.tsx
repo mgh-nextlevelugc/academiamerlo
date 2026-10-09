@@ -53,8 +53,11 @@ export function Mentor() {
                 <strong>
                   <CountUp value={stat.numericValue} suffix={stat.suffix} />
                 </strong>
+                {/* El espacio antes del <br> no es decorativo: por debajo de
+                    420px el CSS oculta el salto de línea, y sin él las dos
+                    partes quedaban pegadas ("acumuladasde su contenido"). */}
                 <span>
-                  {stat.captionLines[0]}
+                  {stat.captionLines[0]}{" "}
                   <br />
                   {stat.captionLines[1]}
                 </span>

@@ -4492,6 +4492,46 @@ details[open] p {
 }
 
 
+/* --- La banda como panel, no como franja.
+   Era el único rectángulo a sangre completa con bordes duros de toda la
+   página, donde el resto son tarjetas redondeadas (el retrato, el slot del
+   formulario, los planes, la muestra de descargables). Ahora se alinea al
+   ancho de la columna de contenido y usa el mismo radio de tarjeta, así
+   deja de leerse como un bloque pegado de otro sitio.
+   Los wordmarks siguen sin caja: eso fue una decisión explícita de v3
+   ("sliders: wordmarks limpios, sin cajas") y se respeta. --- */
+.media-section {
+  width: min(1280px, calc(100% - 96px));
+  margin-inline: auto;
+  border: 0;
+  border-radius: var(--radius-card);
+  padding: 30px 36px 28px;
+}
+.media-section > .wrap {
+  width: 100%;
+}
+/* Items más chicos: entran cuatro por pantalla en vez de menos de tres. */
+.media-section .rail a,
+.media-section #citados a {
+  min-width: 0;
+  flex-basis: auto;
+  margin-right: 20px;
+  padding: 6px 20px 6px 0;
+}
+.media-section .rail a b {
+  font-size: 21px;
+}
+@media (max-width: 680px) {
+  .media-section {
+    width: calc(100% - 40px);
+    padding: 24px 20px 22px;
+  }
+  .media-section .rail a b {
+    font-size: 19px;
+  }
+}
+
+
 /* --- Redes de César en el footer --- */
 .footer .social-links {
   display: flex;
