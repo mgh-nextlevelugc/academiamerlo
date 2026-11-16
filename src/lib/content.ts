@@ -249,3 +249,16 @@ export const pricingPlans = [
     vip: true,
   },
 ] as const;
+
+// Copy aprobado en PROMPT-GRACIAS-Y-CHECKOUT-VSCODE.md.
+export const parteContent = {
+  name: "El Parte de Merlo",
+  price: "5.99",
+  description:
+    "El Parte de Merlo es el canal privado de WhatsApp de César Luis Merlo, periodista especializado en el mercado de pases del fútbol latinoamericano.",
+  benefits: [
+    "La información de mercado que César confirma, directo en tu WhatsApp.",
+    "Contexto para entender cada movimiento: qué está cerrado, qué está avanzado y qué es solo ruido.",
+    "Acceso al canal mientras tu suscripción esté activa.",
+  ],
+} as const;

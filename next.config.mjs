@@ -7,16 +7,15 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // embed de Tally (widget script + iframe). 'unsafe-inline' en script-src
 // es necesario para los scripts inline que Next.js inyecta para hidratar
 // (sin esto, Chrome los bloquea y React tira el error #412 de hidratación:
-// lo encontramos así, con Lighthouse, no es paranoia). Nada de analytics
-// todavía, se suma a esta lista cuando se activen Meta Pixel / GA4 con
-// IDs reales.
+// lo encontramos así, con Lighthouse, no es paranoia). Meta Pixel solo se
+// carga cuando NEXT_PUBLIC_META_PIXEL_ID tiene un ID configurado.
 const contentSecurityPolicy = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://tally.so",
+  "script-src 'self' 'unsafe-inline' https://tally.so https://connect.facebook.net",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  "img-src 'self' data: blob: https://www.facebook.com",
   "font-src 'self' data:",
-  "connect-src 'self'",
+  "connect-src 'self' https://www.facebook.com https://connect.facebook.net",
   "frame-src 'self' https://tally.so",
   "frame-ancestors 'self'",
 ].join("; ");

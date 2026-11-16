@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   if (SITE_PHASE === "launch") {
     entries.push({ url: `${SITE_URL}/lista`, changeFrequency: "monthly", priority: 0.5 });
+    entries.push({ url: `${SITE_URL}/parte`, changeFrequency: "monthly", priority: 0.7 });
   }
 
   return entries;

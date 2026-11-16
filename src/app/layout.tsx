@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { archivo, sourceSans3 } from "@/fonts";
 import { SITE_URL } from "@/lib/site-config";
+import { MetaPixel } from "@/components/MetaPixel";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es" className={`${archivo.variable} ${sourceSans3.variable}`}>
-      <body>{children}</body>
+      <body>{children}<MetaPixel /></body>
     </html>
   );
 }

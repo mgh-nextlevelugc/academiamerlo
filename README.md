@@ -41,6 +41,79 @@ Ver `.env.example`. Las que importan para decidir qué se ve:
 - `NEXT_PUBLIC_HOTMART_CHECKOUT_STANDARD` / `_VIP`: vacíos = los botones
   de plan en `/inscripciones` muestran el estado "pendiente" (demo). Con
   los links reales, se vuelven botones de verdad.
+- `NEXT_PUBLIC_HOTMART_CHECKOUT_PARTE`: checkout de la suscripción mensual
+  de El Parte de Merlo. Vacío = no se muestra un enlace de compra.
+- `NEXT_PUBLIC_META_PIXEL_ID`: dejar vacío hasta que exista el píxel de
+  Academia Merlo. Vacío o no numérico = no se carga el SDK ni se envían
+  eventos. No se usa GTM.
+
+## Hotmart: venta y páginas de gracias
+
+Configurar estas variables en **Production y Preview** de Vercel. En esta
+entrega se preparan en local; no se cambió la configuración remota:
+
+| Variable | Valor |
+| --- | --- |
+| `NEXT_PUBLIC_HOTMART_CHECKOUT_STANDARD` | `https://pay.hotmart.com/K105579077Y?off=ck9jh14u` |
+| `NEXT_PUBLIC_HOTMART_CHECKOUT_VIP` | `https://pay.hotmart.com/K105579077Y?off=924zdazg` |
+| `NEXT_PUBLIC_HOTMART_CHECKOUT_PARTE` | `https://pay.hotmart.com/W108525490P` |
+| `NEXT_PUBLIC_META_PIXEL_ID` | Vacío hasta recibir el ID real |
+
+Las variables `NEXT_PUBLIC_*` se incorporan durante `next build`: después
+de cambiarlas hay que generar un nuevo deployment. No cambiar
+`NEXT_PUBLIC_PHASE` para implementar estas rutas: la apertura de la home
+sigue dependiendo del switch existente.
+
+- `/gracias`: pasos de acceso para Standard y VIP. `noindex,nofollow`.
+- `/parte`: venta del canal, US$5.99 al mes. `noindex,nofollow` en waitlist;
+  canonical propio y entrada en sitemap al pasar a launch.
+- `/parte/gracias`: confirmación y plazo de alta en WhatsApp. `noindex,nofollow`.
+- Las dos páginas de gracias están siempre fuera del sitemap. El plazo
+  máximo de alta se cambia en `PARTE_ACCESS_MAX_HOURS`, en
+  `src/lib/site-config.ts` (actualmente 72 horas).
+
+Después de desplegar y comprobar las tres ofertas, Migue o Claude debe
+configurar la página externa de agradecimiento en Hotmart:
+
+- Academia (Standard y VIP): `https://academiamerlo.com/gracias`.
+- El Parte de Merlo: `https://academiamerlo.com/parte/gracias`.
+
+Verificación externa del 16 de noviembre de 2026, sin realizar compras:
+el checkout de El Parte muestra el producto correcto y **US$5.99 al mes**
+al seleccionar Estados Unidos (Argentina muestra la conversión a ARS).
+Los enlaces de Standard y VIP redirigen a `errorMessage=005` y muestran
+`Product unavailable.`. Se conservaron los enlaces recibidos, pero hay que
+habilitar/corregir esas ofertas en Hotmart y volver a comprobar producto y
+precio antes de publicarlos. No se pudieron confirmar sus precios en vivo.
+
+### Medición
+
+Con un ID configurado, se envía `PageView` al cargar una página y al cambiar
+de ruta con el router. `Purchase` se envía una sola vez por ruta de gracias
+en cada carga del documento, incluso con remontajes de React, SDK lento
+o navegación interna de ida y vuelta. Una recarga completa puede generar
+otro evento; no se deduplican transacciones ni se confirma el pago desde
+este sitio. La confirmación real del pago corresponde a Hotmart.
+
+Antes de inicializar o invocar el Pixel en las páginas de gracias, se
+eliminan todos los parámetros y el fragmento de la URL, sin interpretar
+sus valores. No se envían email, teléfono, nombre, matching avanzado ni
+parámetros del comprador. Las URLs de las páginas de gracias configuradas
+en Hotmart deben ser las rutas limpias anteriores. Los UTMs de las demás
+páginas se conservan para no romper el formulario de lista de espera.
+
+El evento de academia identifica el producto `7636264` y omite el importe:
+la URL compartida no permite saber si se compró Standard o VIP. No se
+atribuye un precio ficticio. Por eso no sirve para medir ingresos/ROAS de
+academia sin añadir una fuente de importe confirmado, como una integración
+de Hotmart. El evento del canal identifica `8990968`, con el precio base
+aprobado de 5.99 USD; no representa impuestos o conversiones locales.
+
+La CSP permite el SDK y las conexiones de Meta. Antes de activar el ID
+real, revisar también la configuración de privacidad aplicable al Pixel.
+
+`npm run test:pixel` verifica no-op, deduplicación, navegación, carga tardía,
+limpieza de URL, conservación de UTMs y separación de productos.
 
 ## Decisiones de arquitectura (para quien retome esto)
 
@@ -127,7 +200,8 @@ cosméticos):
 - `/privacidad`, `/terminos`, `/devoluciones` son placeholders marcados
   TODO.
 - Formulario de Tally en DRAFT (ver más arriba).
-- Links de checkout de Hotmart no existen todavía.
+- Los links de Hotmart están definidos en `.env.example`; verificar las
+  ofertas y configurar las variables del deployment antes de vender.
 - Dominio y hosting: `academiamerlo.com` está comprado; falta decidir
   dónde se hostea y conectar el deploy (ver `NEXT_PUBLIC_SITE_URL`).
 

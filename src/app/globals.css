@@ -4681,3 +4681,268 @@ details[open] p {
 .footer .footer-legal span {
   opacity: 0.5;
 }
+
+/* --- Hotmart: páginas compactas de venta y acceso. --- */
+.commerce-page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+.commerce-wrap {
+  width: min(1160px, calc(100% - 64px));
+  margin-inline: auto;
+}
+.commerce-header {
+  background: #004630;
+  color: var(--paper);
+  border-bottom: 1px solid #35634a;
+}
+.commerce-header-inner {
+  min-height: 88px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.commerce-logo {
+  width: 126px;
+  height: auto;
+}
+.commerce-home {
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.commerce-main {
+  flex: 1;
+  display: grid;
+  align-content: center;
+  padding-block: 48px;
+}
+.commerce-label {
+  display: block;
+  color: var(--green);
+  margin-bottom: 20px;
+}
+.commerce-page h1 {
+  font-size: clamp(38px, 4.4vw, 60px);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+.commerce-description {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.5;
+}
+.commerce-button {
+  background: var(--green);
+  border-color: var(--green);
+  gap: 20px;
+  line-height: 1.3;
+}
+.commerce-button span {
+  flex: none;
+}
+.commerce-footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+.commerce-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 20px;
+  font-size: 14px;
+}
+.commerce-footer p {
+  margin: 0;
+  color: var(--ink);
+}
+.commerce-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 14px;
+}
+.commerce-footer nav > a {
+  /* El nav global del prototipo oculta enlaces sin .btn en móvil. */
+  display: inline-block;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.parte-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+.parte-intro h2 {
+  font-size: 23px;
+  letter-spacing: -0.025em;
+  margin-top: 28px;
+}
+.parte-benefits {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.parte-benefits li {
+  position: relative;
+  padding: 12px 0 12px 24px;
+  border-bottom: 1px solid var(--line);
+  font-size: 18px;
+  line-height: 1.45;
+}
+.parte-benefits li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 22px;
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+}
+.parte-subscription {
+  padding: 32px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--green);
+}
+.parte-subscription > .label {
+  margin-bottom: 14px;
+}
+.parte-subscription .parte-price {
+  font-size: 64px;
+  letter-spacing: -0.05em;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.parte-price > span {
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+.parte-price-period {
+  color: var(--muted);
+  margin: 4px 0 28px;
+}
+.parte-subscription h3 {
+  font-size: 21px;
+}
+.commerce-steps {
+  list-style: none;
+  padding: 0;
+  counter-reset: commerce-step;
+}
+.commerce-steps li {
+  counter-increment: commerce-step;
+  position: relative;
+  padding-left: 46px;
+}
+.commerce-steps li::before {
+  content: counter(commerce-step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--green);
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+.parte-steps {
+  margin: 20px 0 28px;
+  font-size: 17px;
+  line-height: 1.45;
+}
+.parte-steps li + li {
+  margin-top: 18px;
+}
+.parte-subscription .commerce-button {
+  width: 100%;
+  font-size: 17px;
+}
+.commerce-checkout-pending {
+  margin: 0;
+  font-size: 17px;
+}
+.commerce-thanks {
+  max-width: 780px;
+  width: 100%;
+  margin-inline: auto;
+}
+.academy-next-steps {
+  margin: 32px 0 24px;
+  border-top: 1px solid var(--line);
+}
+.academy-next-steps li {
+  padding-block: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.academy-next-steps li::before {
+  top: 18px;
+}
+.academy-next-steps h2 {
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.academy-next-steps p {
+  margin: 0;
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+.commerce-note {
+  font-size: 17px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.commerce-access-note {
+  margin-block: 32px 24px;
+  padding: 24px;
+  background: var(--soft);
+  border-left: 3px solid var(--green);
+}
+.commerce-access-note p {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.5;
+}
+@media (max-width: 760px) {
+  .commerce-wrap {
+    width: calc(100% - 40px);
+  }
+  .commerce-header-inner {
+    min-height: 78px;
+    gap: 16px;
+  }
+  .commerce-logo {
+    width: 112px;
+  }
+  .commerce-main {
+    padding-block: 32px;
+  }
+  .parte-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .parte-subscription {
+    padding: 24px;
+  }
+  .commerce-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .commerce-thanks .commerce-button {
+    width: 100%;
+    font-size: 17px;
+    padding-inline: 18px;
+  }
+  .commerce-access-note {
+    padding: 20px;
+  }
+}

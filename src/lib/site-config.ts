@@ -26,4 +26,8 @@ export const MOTION_ENABLED = process.env.NEXT_PUBLIC_MOTION === "on";
 export const HOTMART_CHECKOUT = {
   standard: process.env.NEXT_PUBLIC_HOTMART_CHECKOUT_STANDARD ?? "",
   vip: process.env.NEXT_PUBLIC_HOTMART_CHECKOUT_VIP ?? "",
+  parte: process.env.NEXT_PUBLIC_HOTMART_CHECKOUT_PARTE ?? "",
 };
+
+export const PARTE_ACCESS_MAX_HOURS = 72;
+export const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim() ?? "";
