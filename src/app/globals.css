@@ -5039,9 +5039,9 @@ details[open] p {
   text-underline-offset: 4px;
 }
 
-/* Tres niveles, con la academia como producto principal. */
+/* Academia primero; la comunidad ocupa un bloque secundario debajo. */
 .pricing-unified {
-  grid-template-columns: minmax(0, 0.82fr) repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
   gap: 24px;
 }
@@ -5076,10 +5076,15 @@ details[open] p {
 .pricing-unified .plan .btn {
   font-size: 17px;
 }
+.pricing-unified .pricing-academy-guidance {
+  grid-column: 1 / -1;
+  margin: 0 auto;
+}
 .pricing-unified .plan-parte {
+  grid-column: 1 / -1;
   align-self: start;
   margin-top: 24px;
-  padding: 24px 20px;
+  padding: 24px 0;
   border-inline: 0;
   border-radius: 0;
   background: transparent;
@@ -5135,17 +5140,11 @@ details[open] p {
   outline-color: var(--paper);
 }
 
-@media (min-width: 681px) and (max-width: 1050px) {
-  .pricing-unified {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+@media (min-width: 681px) {
   .pricing-unified .plan-parte {
-    grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 32px;
-    margin-top: 0;
-    padding: 24px 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 48px;
   }
   .pricing-unified .plan-parte > .label,
   .pricing-unified .plan-parte > h3,
@@ -5154,11 +5153,16 @@ details[open] p {
   .pricing-unified .plan-parte > .parte-availability {
     grid-column: 1;
   }
+  .pricing-unified .plan-parte .commerce-button {
+    max-width: 360px;
+  }
   .pricing-unified .plan-parte > ul {
     grid-column: 2;
     grid-row: 1 / 5;
     padding-block: 0;
   }
+}
+@media (min-width: 681px) and (max-width: 1050px) {
   .nav nav {
     gap: 18px;
   }

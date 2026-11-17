@@ -58,6 +58,13 @@ export function Pricing() {
           <p>{pricingContent.description}</p>
         </div>
         <div className="pricing pricing-unified">
+          {pricingPlans.map((plan) => (
+            <PlanCard key={plan.id} plan={plan} />
+          ))}
+          <p className="guarantee pricing-academy-guidance">
+            <strong>{pricingContent.guidanceTitle}</strong>{" "}
+            {pricingContent.guidance}
+          </p>
           <article className="plan plan-parte">
             <span className="label">{parteContent.tierLabel}</span>
             <h3>{parteContent.name}</h3>
@@ -69,14 +76,7 @@ export function Pricing() {
               ))}
             </ul>
           </article>
-          {pricingPlans.map((plan) => (
-            <PlanCard key={plan.id} plan={plan} />
-          ))}
         </div>
-        <p className="guarantee">
-          <strong>{pricingContent.guidanceTitle}</strong>{" "}
-          {pricingContent.guidance}
-        </p>
         <p className="guarantee">{pricingContent.guarantee}</p>
         <p className="guarantee">{pricingContent.payments}</p>
       </div>

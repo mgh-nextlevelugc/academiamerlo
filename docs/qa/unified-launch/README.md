@@ -3,6 +3,19 @@
 Fecha: 17 de noviembre de 2026. Base: `333ed7b`. Comprobaciones locales
 contra builds de producción, sin usar el navegador personal del usuario.
 
+## Jerarquía de productos
+
+Standard y VIP aparecen primero, en una fila de dos columnas en escritorio y
+apilados en móvil. La comunidad queda debajo de ambos en un bloque más ligero.
+El orden es el mismo en el DOM, en la lectura y en la tabulación. Esta decisión
+posterior de Migue sustituye el orden del brief inicial.
+
+Capturas de precios actualizadas para ambos estados y los tres anchos.
+Comprobaciones de posición: [on](pricing-order-on.json), [off](pricing-order-off.json).
+Las 12 combinaciones de ruta, tamaño y estado pasan: la comunidad queda
+físicamente debajo de ambos planes, sin overflow ni infracciones de axe
+en la sección. Build y lint pasan; las 15 pruebas verifican el nuevo orden.
+
 ## Resultado
 
 - `npm run build`, `npm run lint` y `npm test` pasan. 15 pruebas automatizadas,
@@ -32,6 +45,7 @@ contra builds de producción, sin usar el navegador personal del usuario.
 
 ## Lighthouse móvil
 
+Medición anterior al ajuste de orden de las tarjetas.
 Lighthouse 12.8.2, Chrome headless en perfiles temporales, simulación móvil
 con RTT 150 ms y CPU x4. Una pasada por ruta y versión, ejecutadas en serie
 sobre `next build` + `next start`, con Meta y Tally bloqueados. La home es

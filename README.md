@@ -72,7 +72,7 @@ de cambiarlas hay que generar un nuevo deployment. Las banderas permiten el lanz
 | `waitlist` | `off` | Lista de espera de la academia | Próximamente; sin checkout ni enlaces en menú/pie |
 | `waitlist` | `on` | Lista de espera; invitación a la comunidad solo tras envío confirmado | En venta, con menú y pie |
 | `launch` | `off` | Academia Standard/VIP y tarjeta de comunidad Próximamente | Sin checkout |
-| `launch` | `on` | Tres niveles: comunidad, Standard, VIP | En venta |
+| `launch` | `on` | Standard y VIP primero; comunidad debajo | En venta |
 
 Primero se puede desplegar `launch/off` y después `launch/on`. No hay fechas
 programadas en código. Cualquier valor de PARTE_LIVE distinto de `on` se

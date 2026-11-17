@@ -36,7 +36,7 @@ for (const phase of ["waitlist", "launch"]) {
       );
       assert.ok(pricing.includes(checkout.NEXT_PUBLIC_HOTMART_CHECKOUT_VIP));
       assert.ok(
-        pricing.indexOf(content.name) < pricing.indexOf("<h3>Standard"),
+        pricing.indexOf("<h3>VIP") < pricing.indexOf(content.name),
       );
       assert.ok(pricing.indexOf("<h3>Standard") < pricing.indexOf("<h3>VIP"));
       assert.equal(pricing.includes(content.comingSoon), live === "off");

@@ -1,0 +1,56 @@
+[
+  {
+    "state": "off",
+    "route": "/",
+    "width": 375,
+    "academyBottom": 6651.28125,
+    "communityTop": 6769.03125,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "state": "off",
+    "route": "/inscripciones",
+    "width": 375,
+    "academyBottom": 6651.28125,
+    "communityTop": 6769.03125,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "state": "off",
+    "route": "/",
+    "width": 768,
+    "academyBottom": 4822.78125,
+    "communityTop": 4941.28125,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "state": "off",
+    "route": "/inscripciones",
+    "width": 768,
+    "academyBottom": 4822.78125,
+    "communityTop": 4941.28125,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "state": "off",
+    "route": "/",
+    "width": 1280,
+    "academyBottom": 4869.8125,
+    "communityTop": 4988.3125,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "state": "off",
+    "route": "/inscripciones",
+    "width": 1280,
+    "academyBottom": 4869.8125,
+    "communityTop": 4988.3125,
+    "overflow": false,
+    "errors": []
+  }
+]
