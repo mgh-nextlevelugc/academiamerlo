@@ -190,6 +190,10 @@ export const faqWaitlist = [
 
 export const faqVenta = [
   {
+    q: "¿Cuál es la diferencia entre la comunidad de WhatsApp y la academia?",
+    a: "La comunidad es una suscripción mensual para recibir en WhatsApp la información de mercado que César confirma. La academia es el programa para aprender el método: seis módulos grabados con materiales, quizzes y certificado. Son independientes y puedes tener los dos.",
+  },
+  {
     q: "¿Necesito experiencia en periodismo?",
     a: "No. El programa está pensado tanto para quienes quieren empezar como para quienes ya cubren fútbol y buscan especializarse. También puedes hacerlo si quieres entender mejor el mercado de pases.",
   },
@@ -250,15 +254,86 @@ export const pricingPlans = [
   },
 ] as const;
 
-// Copy aprobado en PROMPT-GRACIAS-Y-CHECKOUT-VSCODE.md.
+// Identidad y copy de comercio. Renombre: editar name y reemplazar el archivo
+// logo. El escudo AM es provisional hasta recibir el logo de la comunidad.
 export const parteContent = {
   name: "El Parte de Merlo",
+  logo: "/parte-logo.png",
+  tagline: "La información de mercado que César confirma, directo en tu WhatsApp.",
+  label: "Comunidad privada de WhatsApp",
+  tierLabel: "Para seguir el mercado",
   price: "5.99",
+  currency: "US$",
+  period: "al mes",
+  billing: "Suscripción mensual",
   description:
-    "El Parte de Merlo es el canal privado de WhatsApp de César Luis Merlo, periodista especializado en el mercado de pases del fútbol latinoamericano.",
+    "La comunidad privada de WhatsApp de César Luis Merlo, periodista especializado en el mercado de pases del fútbol latinoamericano.",
+  benefitsTitle: "Qué recibes",
   benefits: [
     "La información de mercado que César confirma, directo en tu WhatsApp.",
     "Contexto para entender cada movimiento: qué está cerrado, qué está avanzado y qué es solo ruido.",
-    "Acceso al canal mientras tu suscripción esté activa.",
+    "Acceso a la comunidad mientras tu suscripción esté activa.",
   ],
+  publishing: "Solo publican los administradores.",
+  howTitle: "Cómo funciona",
+  steps: [
+    "Te suscribes con pago mensual.",
+    "Dejas el número asociado a tu WhatsApp, con código de país. Es el único dato que usamos para agregarte.",
+  ],
+  accessStep: (hours: number) => `El equipo te agrega a la comunidad en un plazo máximo de ${hours} horas.`,
+  cta: "Suscribirme en Hotmart",
+  discoverCta: "Conocer la comunidad",
+  comingSoon: "Próximamente",
+  checkoutPending: "La suscripción no está disponible en este momento.",
+  localCurrency: "Hotmart muestra el precio en tu moneda al pagar.",
+  supportPrompt: "¿Dejaste un número equivocado? Escríbenos a",
+  supportEmail: "info@roikon.com",
+  waitlistInvitation: "Mientras esperas la apertura, recibe la información de César en tu WhatsApp.",
+  academyInvitation: "¿Quieres aprender el método? Conoce Academia Merlo.",
+  academyCta: "Ver el programa",
+  thanks: {
+    title: (name: string) => `Gracias por suscribirte a ${name}`,
+    heading: (name: string) => `Tu suscripción a ${name} está activa.`,
+    description: "Información de acceso a la comunidad privada de WhatsApp de César Luis Merlo.",
+    access: (hours: number) => `El equipo te agrega a la comunidad de WhatsApp en un plazo máximo de ${hours} horas, al número que dejaste al comprar.`,
+    cancellation: "Puedes cancelar cuando quieras desde tu cuenta de Hotmart.",
+    cta: "Ir a mi cuenta de Hotmart",
+  },
+} as const;
+
+export const academyThanksContent = {
+  title: "Gracias por unirte",
+  description: "Los próximos pasos para acceder a Academia Merlo desde Hotmart.",
+  label: "Academia Merlo",
+  heading: "Ya eres parte de Academia Merlo.",
+  steps: [
+    { title: "Revisa tu email", text: "Hotmart te envía el acceso al programa." },
+    { title: "Empieza por el Módulo 1", text: "Entra al área de miembros y empieza por el Módulo 1." },
+    { title: "Si compraste VIP", text: "El equipo te escribe por email con el calendario de encuentros en vivo." },
+  ],
+  note: "Si no ves el email en unos minutos, revisa spam o promociones.",
+  cta: "Ir a mis cursos en Hotmart",
+} as const;
+
+export const pricingContent = {
+  label: "Elige cómo quieres aprender",
+  title: "El mismo método. Dos formas de vivirlo.",
+  description: "Estudia a tu ritmo con Standard o suma encuentros en vivo y feedback de César con VIP.",
+  billing: "Pago único · acceso de por vida",
+  guidanceTitle: "¿No sabes cuál elegir?",
+  guidance: "Standard es el método completo. VIP es el método con César revisando tu trabajo.",
+  guarantee: "Pago a través de Hotmart · Garantía de devolución de 7 días",
+  payments: "Los medios de pago y las cuotas disponibles se mostrarán en el checkout.",
+  pending: (name: string) => `Vista de prueba: aquí se abrirá el checkout de Hotmart del plan ${name}. El enlace definitivo está pendiente.`,
+} as const;
+
+export const commerceContent = {
+  skip: "Ir al contenido",
+  home: "Volver al inicio",
+  homeLabel: "Academia Merlo, inicio",
+  brand: "Academia Merlo",
+  motto: "La noticia no se mancha.",
+  legal: "Información legal",
+  privacy: "Privacidad",
+  terms: "Términos",
 } as const;

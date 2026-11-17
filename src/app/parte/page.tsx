@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CommerceShell } from "@/components/CommerceShell";
+import { ParteOffer } from "@/components/ParteOffer";
+import { ParteSupport } from "@/components/ParteSupport";
 import { parteContent } from "@/lib/content";
-import { HOTMART_CHECKOUT, PARTE_ACCESS_MAX_HOURS, SITE_PHASE } from "@/lib/site-config";
+import { PARTE_ACCESS_MAX_HOURS, SITE_PHASE } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "El Parte de Merlo",
+  title: parteContent.name,
   description: parteContent.description,
   alternates: { canonical: "/parte" },
-  robots: SITE_PHASE === "waitlist" ? { index: false, follow: false } : undefined,
+  robots:
+    SITE_PHASE === "waitlist" ? { index: false, follow: false } : undefined,
+  openGraph: {
+    title: parteContent.name,
+    description: parteContent.tagline,
+    url: "/parte",
+  },
+  twitter: { title: parteContent.name, description: parteContent.tagline },
 };
 
 export default function PartePage() {
@@ -15,31 +25,47 @@ export default function PartePage() {
     <CommerceShell>
       <div className="parte-grid">
         <section className="parte-intro" aria-labelledby="parte-title">
-          <span className="label commerce-label">Canal privado de WhatsApp</span>
-          <h1 id="parte-title">El Parte de Merlo</h1>
-          <p className="commerce-description">{parteContent.description}</p>
-          <h2>Qué recibes</h2>
-          <ul className="parte-benefits" role="list">
-            {parteContent.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}
-          </ul>
+          <div className="parte-masthead">
+            <Image
+              src={parteContent.logo}
+              alt=""
+              width={96}
+              height={56}
+              className="parte-logo"
+            />
+            <span className="label commerce-label">{parteContent.label}</span>
+          </div>
+          <h1 id="parte-title">{parteContent.name}</h1>
+          <p className="commerce-description">{parteContent.tagline}</p>
         </section>
-        <section className="parte-subscription" aria-labelledby="parte-price">
-          <p className="label">Suscripción mensual</p>
-          <h2 className="parte-price" id="parte-price"><span>US$</span>{parteContent.price}</h2>
-          <p className="parte-price-period">al mes</p>
-          <h3>Cómo funciona</h3>
+        <section
+          className="parte-subscription"
+          aria-label={parteContent.billing}
+        >
+          <span className="label">{parteContent.tierLabel}</span>
+          <ParteOffer />
+        </section>
+        <section
+          className="parte-details"
+          aria-labelledby="parte-benefits-title"
+        >
+          <h2 id="parte-benefits-title">{parteContent.benefitsTitle}</h2>
+          <ul className="parte-benefits" role="list">
+            {parteContent.benefits.map((benefit) => (
+              <li key={benefit}>{benefit}</li>
+            ))}
+          </ul>
+          <p className="parte-publishing">{parteContent.publishing}</p>
+        </section>
+        <section className="parte-how" aria-labelledby="parte-how-title">
+          <h2 id="parte-how-title">{parteContent.howTitle}</h2>
           <ol className="commerce-steps parte-steps" role="list">
-            <li>Te suscribes con pago mensual.</li>
-            <li>Dejas tu número de WhatsApp al comprar.</li>
-            <li>El equipo te agrega al canal en un plazo máximo de {PARTE_ACCESS_MAX_HOURS} horas.</li>
+            {parteContent.steps.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+            <li>{parteContent.accessStep(PARTE_ACCESS_MAX_HOURS)}</li>
           </ol>
-          {HOTMART_CHECKOUT.parte ? (
-            <a className="btn commerce-button" href={HOTMART_CHECKOUT.parte} target="_blank" rel="noopener noreferrer">
-              Suscribirme en Hotmart <span aria-hidden="true">↗</span>
-            </a>
-          ) : (
-            <p className="commerce-checkout-pending">La suscripción no está disponible en este momento.</p>
-          )}
+          <ParteSupport />
         </section>
       </div>
     </CommerceShell>

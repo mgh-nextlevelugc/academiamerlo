@@ -1,5 +1,6 @@
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { PHASE_PRODUCTION_BUILD } from "next/constants.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -48,4 +49,14 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default function config(phase) {
+  if (phase === PHASE_PRODUCTION_BUILD) {
+    for (const product of ["STANDARD", "VIP", "PARTE"]) {
+      const key = `NEXT_PUBLIC_HOTMART_CHECKOUT_${product}`;
+      if (!process.env[key]?.trim()) {
+        console.warn(`[Academia Merlo] Falta ${key}. No habrá enlace de compra para este producto. Configura la variable y vuelve a construir.`);
+      }
+    }
+  }
+  return nextConfig;
+}

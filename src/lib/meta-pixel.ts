@@ -1,3 +1,5 @@
+import { parteContent } from "./content";
+
 type PixelArguments = [command: string, ...parameters: unknown[]];
 type PixelFunction = {
   (...args: PixelArguments): void;
@@ -72,7 +74,7 @@ export function trackMetaPage(pixelId: string, pathname: string): void {
   if ((isAcademy || isParte) && !purchases.has(pathname)) {
     const product = isAcademy
       ? { content_ids: ["7636264"], content_type: "product", content_name: "Academia Merlo" }
-      : { content_ids: ["8990968"], content_type: "product", content_name: "El Parte de Merlo", value: 5.99, currency: "USD" };
+      : { content_ids: ["8990968"], content_type: "product", content_name: parteContent.name, value: 5.99, currency: "USD" };
     // La academia comparte URL entre Standard y VIP: no inventar el importe.
     // El Set dura esta carga del documento, no persiste entre recargas.
     pixel("trackSingle", pixelId, "Purchase", product);

@@ -29,6 +29,9 @@ Ver `.env.example`. Las que importan para decidir qué se ve:
   waitlist se muda a `/lista`. `/inscripciones` existe siempre (útil para
   compartir un preview de la venta antes del switch) pero queda `noindex`
   hasta `launch`.
+- `NEXT_PUBLIC_PARTE_LIVE`: `off` (default) muestra "Próximamente", sin precio
+  ni enlace de compra. `on` habilita la comunidad, el checkout y los enlaces
+  en navegación y pie. Es independiente de `NEXT_PUBLIC_PHASE`.
 - `NEXT_PUBLIC_TALLY_FORM_ID`: vacío = maqueta visual del formulario
   (no envía nada). El form real de Tally (`aQ8N92`, multipágina,
   paleta verde) está en **DRAFT**: no va a cargar embebido hasta que se
@@ -42,7 +45,7 @@ Ver `.env.example`. Las que importan para decidir qué se ve:
   de plan en `/inscripciones` muestran el estado "pendiente" (demo). Con
   los links reales, se vuelven botones de verdad.
 - `NEXT_PUBLIC_HOTMART_CHECKOUT_PARTE`: checkout de la suscripción mensual
-  de El Parte de Merlo. Vacío = no se muestra un enlace de compra.
+  de la comunidad de WhatsApp. Vacío = no se muestra un enlace de compra.
 - `NEXT_PUBLIC_META_PIXEL_ID`: dejar vacío hasta que exista el píxel de
   Academia Merlo. Vacío o no numérico = no se carga el SDK ni se envían
   eventos. No se usa GTM.
@@ -54,37 +57,84 @@ entrega se preparan en local; no se cambió la configuración remota:
 
 | Variable | Valor |
 | --- | --- |
+| `NEXT_PUBLIC_PHASE` | `launch` para abrir la academia; `waitlist` antes de la apertura |
+| `NEXT_PUBLIC_PARTE_LIVE` | `off` inicialmente; `on` cuando se habilite la comunidad |
 | `NEXT_PUBLIC_HOTMART_CHECKOUT_STANDARD` | `https://pay.hotmart.com/K105579077Y?off=ck9jh14u` |
 | `NEXT_PUBLIC_HOTMART_CHECKOUT_VIP` | `https://pay.hotmart.com/K105579077Y?off=924zdazg` |
 | `NEXT_PUBLIC_HOTMART_CHECKOUT_PARTE` | `https://pay.hotmart.com/W108525490P` |
 | `NEXT_PUBLIC_META_PIXEL_ID` | Vacío hasta recibir el ID real |
 
 Las variables `NEXT_PUBLIC_*` se incorporan durante `next build`: después
-de cambiarlas hay que generar un nuevo deployment. No cambiar
-`NEXT_PUBLIC_PHASE` para implementar estas rutas: la apertura de la home
-sigue dependiendo del switch existente.
+de cambiarlas hay que generar un nuevo deployment. Las banderas permiten el lanzamiento escalonado sin cambios de código:
+
+| PHASE | PARTE_LIVE | Home | Comunidad |
+| --- | --- | --- | --- |
+| `waitlist` | `off` | Lista de espera de la academia | Próximamente; sin checkout ni enlaces en menú/pie |
+| `waitlist` | `on` | Lista de espera; invitación a la comunidad solo tras envío confirmado | En venta, con menú y pie |
+| `launch` | `off` | Academia Standard/VIP y tarjeta de comunidad Próximamente | Sin checkout |
+| `launch` | `on` | Tres niveles: comunidad, Standard, VIP | En venta |
+
+Primero se puede desplegar `launch/off` y después `launch/on`. No hay fechas
+programadas en código. Cualquier valor de PARTE_LIVE distinto de `on` se
+considera `off`. `/inscripciones` conserva su función de preview de la venta.
+Si falta algún checkout, `npm run build` emite una advertencia con el nombre
+de la variable (sin imprimir su valor). Una bandera `on` sin checkout muestra
+un estado de indisponibilidad, nunca un enlace vacío.
+
+Con PARTE_LIVE `on`, `/gracias` ofrece la comunidad como complemento.
+`/parte/gracias` invita a `/#planes` únicamente en fase `launch`. Con
+`waitlist` no presenta esa invitación. El formulario Tally conserva su
+montaje, prefill y validación de origen, ventana y formId. Solo se expone
+un estado `submitted` tras `Tally.FormSubmitted`; el formulario de maqueta
+no dispara la oferta porque no registra datos.
 
 - `/gracias`: pasos de acceso para Standard y VIP. `noindex,nofollow`.
-- `/parte`: venta del canal, US$5.99 al mes. `noindex,nofollow` en waitlist;
+- `/parte`: venta de la comunidad, US$5.99 al mes, gobernada por PARTE_LIVE. `noindex,nofollow` en waitlist;
   canonical propio y entrada en sitemap al pasar a launch.
 - `/parte/gracias`: confirmación y plazo de alta en WhatsApp. `noindex,nofollow`.
 - Las dos páginas de gracias están siempre fuera del sitemap. El plazo
   máximo de alta se cambia en `PARTE_ACCESS_MAX_HOURS`, en
   `src/lib/site-config.ts` (actualmente 72 horas).
 
-Después de desplegar y comprobar las tres ofertas, Migue o Claude debe
-configurar la página externa de agradecimiento en Hotmart:
+Según el brief del 17 de noviembre de 2026, estas páginas externas ya están
+configuradas en Hotmart para compras aprobadas. Las rutas se conservan:
 
 - Academia (Standard y VIP): `https://academiamerlo.com/gracias`.
-- El Parte de Merlo: `https://academiamerlo.com/parte/gracias`.
+- Comunidad de WhatsApp: `https://academiamerlo.com/parte/gracias`.
 
 Verificación externa del 16 de noviembre de 2026, sin realizar compras:
-el checkout de El Parte muestra el producto correcto y **US$5.99 al mes**
-al seleccionar Estados Unidos (Argentina muestra la conversión a ARS).
+el checkout de la comunidad muestra el producto correcto y **US$5.99 al mes**
+al seleccionar Estados Unidos (Hotmart convierte a moneda local según el país).
 Los enlaces de Standard y VIP redirigen a `errorMessage=005` y muestran
 `Product unavailable.`. Se conservaron los enlaces recibidos, pero hay que
 habilitar/corregir esas ofertas en Hotmart y volver a comprobar producto y
 precio antes de publicarlos. No se pudieron confirmar sus precios en vivo.
+Revalidación del 17 de noviembre de 2026: Standard y VIP siguen devolviendo
+el mismo error; el checkout de la comunidad abre y muestra la suscripción
+mensual con conversión local. No se realizaron compras ni se cambiaron ofertas.
+
+### Identidad y copy de comercio
+
+`src/lib/content.ts` centraliza `parteContent.name`, `tagline`, `description`,
+`logo`, precio, beneficios y textos. El nombre no se repite en páginas,
+metadatos, navegación ni eventos del Pixel. Para renombrar basta con cambiar
+`parteContent.name`; para el logo, reemplazar `public/parte-logo.png` (o cambiar
+`parteContent.logo` si se recibe SVG). El archivo actual es una copia del
+escudo AM provisional, separada del logo de academia para no modificarlo.
+El nombre y el logo nuevos siguen pendientes de Migue.
+
+El soporte por un número incorrecto es `info@roikon.com`, centralizado en
+`parteContent.supportEmail`. La entrega es una comunidad privada de WhatsApp
+donde solo publican los administradores. No se promete frecuencia de mensajes.
+
+### QA del lanzamiento unificado
+
+`npm test` cubre las cuatro combinaciones, enlaces, invitaciones, metadatos,
+sitemap, aviso de checkout ausente y las pruebas existentes de Pixel.
+Capturas antes/después y resultados: [QA visual](docs/qa/unified-launch/README.md).
+Las capturas usan un navegador aislado contra `next build` + `next start`.
+No envían formularios reales, compras ni eventos a Meta. La configuración de
+Vercel debe cargarse antes del despliegue y sigue a cargo de Migue.
 
 ### Medición
 
@@ -212,5 +262,6 @@ npm run dev      # desarrollo
 npm run build    # build de producción
 npm run start    # sirve el build (para medir Lighthouse real)
 npm run lint     # eslint
+npm test         # estados de lanzamiento + Pixel
 npx tsc --noEmit # chequeo de tipos
 ```

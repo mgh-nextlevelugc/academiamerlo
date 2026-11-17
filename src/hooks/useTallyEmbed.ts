@@ -39,6 +39,7 @@ export function useTallyEmbed(formId: string) {
   const [status, setStatus] = useState(configured ? "El formulario se cargará en este espacio." : "");
   const [fallbackHref, setFallbackHref] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const formURL = useCallback(
     (embed: boolean, email = "") => {
@@ -195,6 +196,7 @@ export function useTallyEmbed(formId: string) {
         window.clearTimeout(loadTimerRef.current);
         frameTouchedRef.current = true;
         setStatus("Tu registro fue enviado. Revisa la confirmación en el formulario.");
+        setSubmitted(true);
       }
     };
     window.addEventListener("message", onMessage);
@@ -208,5 +210,5 @@ export function useTallyEmbed(formId: string) {
     };
   }, [formId]);
 
-  return { configured, slotRef, frameHostRef, mount, status, fallbackHref, mounted };
+  return { configured, slotRef, frameHostRef, mount, status, fallbackHref, mounted, submitted };
 }

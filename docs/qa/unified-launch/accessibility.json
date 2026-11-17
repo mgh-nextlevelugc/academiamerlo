@@ -1,0 +1,62 @@
+[
+  {
+    "path": "/inscripciones",
+    "width": 375,
+    "violations": []
+  },
+  {
+    "path": "/parte",
+    "width": 375,
+    "violations": []
+  },
+  {
+    "path": "/gracias",
+    "width": 375,
+    "violations": []
+  },
+  {
+    "path": "/parte/gracias",
+    "width": 375,
+    "violations": []
+  },
+  {
+    "path": "/inscripciones",
+    "width": 768,
+    "violations": []
+  },
+  {
+    "path": "/parte",
+    "width": 768,
+    "violations": []
+  },
+  {
+    "path": "/gracias",
+    "width": 768,
+    "violations": []
+  },
+  {
+    "path": "/parte/gracias",
+    "width": 768,
+    "violations": []
+  },
+  {
+    "path": "/inscripciones",
+    "width": 1280,
+    "violations": []
+  },
+  {
+    "path": "/parte",
+    "width": 1280,
+    "violations": []
+  },
+  {
+    "path": "/gracias",
+    "width": 1280,
+    "violations": []
+  },
+  {
+    "path": "/parte/gracias",
+    "width": 1280,
+    "violations": []
+  }
+]

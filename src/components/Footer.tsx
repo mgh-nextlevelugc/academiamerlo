@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { cesarSocials } from "@/lib/content";
+import { cesarSocials, parteContent } from "@/lib/content";
+import { PARTE_LIVE } from "@/lib/site-config";
 
 export function Footer() {
   return (
@@ -72,6 +73,7 @@ export function Footer() {
           </div>
         </div>
         <p className="footer-note footer-legal">
+          {PARTE_LIVE && <><Link href="/parte">{parteContent.name}</Link><span aria-hidden="true">·</span></>}
           <Link href="/privacidad">Privacidad</Link>
           <span aria-hidden="true">·</span>
           <Link href="/terminos">Términos</Link>

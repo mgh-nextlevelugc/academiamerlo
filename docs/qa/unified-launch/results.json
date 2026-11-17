@@ -1,0 +1,962 @@
+[
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/lista",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/inscripciones",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/parte",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": 487.375,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/gracias",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/parte/gracias",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/privacidad",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/terminos",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/lista",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/inscripciones",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/parte",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": 345.375,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/gracias",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/parte/gracias",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/privacidad",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/terminos",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/lista",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/inscripciones",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/parte",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": 378.21875,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/gracias",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/parte/gracias",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/privacidad",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "on",
+    "path": "/terminos",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/lista",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/inscripciones",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/parte",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/gracias",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/parte/gracias",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/privacidad",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/terminos",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/lista",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/inscripciones",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/parte",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/gracias",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/parte/gracias",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/privacidad",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/terminos",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/lista",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/inscripciones",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/parte",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/gracias",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/parte/gracias",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/privacidad",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "launch",
+    "live": "off",
+    "path": "/terminos",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/lista",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": "noindex, follow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/inscripciones",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/parte",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": "noindex, nofollow",
+    "ctaBottom": 487.375,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/gracias",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/parte/gracias",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/privacidad",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/terminos",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/lista",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": "noindex, follow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/inscripciones",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/parte",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": "noindex, nofollow",
+    "ctaBottom": 345.375,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/gracias",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/parte/gracias",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/privacidad",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/terminos",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/lista",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": "noindex, follow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/inscripciones",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/parte",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": "noindex, nofollow",
+    "ctaBottom": 378.21875,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/gracias",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/parte/gracias",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/privacidad",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "on",
+    "path": "/terminos",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/lista",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": "noindex, follow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/inscripciones",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/parte",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/gracias",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/parte/gracias",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/privacidad",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/terminos",
+    "width": 375,
+    "scrollWidth": 375,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/lista",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": "noindex, follow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/inscripciones",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/parte",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/gracias",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/parte/gracias",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/privacidad",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/terminos",
+    "width": 768,
+    "scrollWidth": 768,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/lista",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": "noindex, follow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/inscripciones",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/parte",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/gracias",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/parte/gracias",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": "noindex, nofollow",
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/privacidad",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  },
+  {
+    "phase": "waitlist",
+    "live": "off",
+    "path": "/terminos",
+    "width": 1280,
+    "scrollWidth": 1280,
+    "robots": null,
+    "ctaBottom": null,
+    "errors": []
+  }
+]

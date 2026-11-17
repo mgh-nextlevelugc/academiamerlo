@@ -11,6 +11,9 @@ export type PageMode = "waitlist" | "venta";
 export const SITE_PHASE: SitePhase =
   process.env.NEXT_PUBLIC_PHASE === "launch" ? "launch" : "waitlist";
 
+// Independiente de la academia. Cambiar requiere un nuevo build.
+export const PARTE_LIVE = process.env.NEXT_PUBLIC_PARTE_LIVE === "on";
+
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://academiamerlo.com";
 
@@ -24,9 +27,9 @@ export const TALLY_FORM_ID = process.env.NEXT_PUBLIC_TALLY_FORM_ID ?? "";
 export const MOTION_ENABLED = process.env.NEXT_PUBLIC_MOTION === "on";
 
 export const HOTMART_CHECKOUT = {
-  standard: process.env.NEXT_PUBLIC_HOTMART_CHECKOUT_STANDARD ?? "",
-  vip: process.env.NEXT_PUBLIC_HOTMART_CHECKOUT_VIP ?? "",
-  parte: process.env.NEXT_PUBLIC_HOTMART_CHECKOUT_PARTE ?? "",
+  standard: process.env.NEXT_PUBLIC_HOTMART_CHECKOUT_STANDARD?.trim() ?? "",
+  vip: process.env.NEXT_PUBLIC_HOTMART_CHECKOUT_VIP?.trim() ?? "",
+  parte: process.env.NEXT_PUBLIC_HOTMART_CHECKOUT_PARTE?.trim() ?? "",
 };
 
 export const PARTE_ACCESS_MAX_HOURS = 72;

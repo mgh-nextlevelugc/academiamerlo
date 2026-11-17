@@ -1,0 +1,86 @@
+[
+  {
+    "state": "before",
+    "route": "/",
+    "lighthouseVersion": "12.8.2",
+    "performance": 90,
+    "accessibility": 100,
+    "LCP": 3540.7090000000007,
+    "CLS": 0,
+    "TBT": 82,
+    "scriptTransferBytes": 156870,
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    },
+    "benchmarkIndex": 3165,
+    "failedAccessibility": []
+  },
+  {
+    "state": "before",
+    "route": "/parte",
+    "lighthouseVersion": "12.8.2",
+    "performance": 96,
+    "accessibility": 100,
+    "LCP": 2705.596,
+    "CLS": 0,
+    "TBT": 42,
+    "scriptTransferBytes": 158073,
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    },
+    "benchmarkIndex": 3207.5,
+    "failedAccessibility": []
+  },
+  {
+    "state": "after",
+    "route": "/",
+    "lighthouseVersion": "12.8.2",
+    "performance": 95,
+    "accessibility": 100,
+    "LCP": 2864.3035,
+    "CLS": 0,
+    "TBT": 31.5,
+    "scriptTransferBytes": 161371,
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    },
+    "benchmarkIndex": 3213,
+    "failedAccessibility": []
+  },
+  {
+    "state": "after",
+    "route": "/parte",
+    "lighthouseVersion": "12.8.2",
+    "performance": 98,
+    "accessibility": 100,
+    "LCP": 2407.3487,
+    "CLS": 0,
+    "TBT": 11.5,
+    "scriptTransferBytes": 162576,
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    },
+    "benchmarkIndex": 3204.5,
+    "failedAccessibility": []
+  }
+]

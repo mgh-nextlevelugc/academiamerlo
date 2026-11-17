@@ -4682,7 +4682,7 @@ details[open] p {
   opacity: 0.5;
 }
 
-/* --- Hotmart: páginas compactas de venta y acceso. --- */
+/* --- Comercio: misma escala y superficies que la landing. --- */
 .commerce-page {
   min-height: 100svh;
   display: flex;
@@ -4708,6 +4708,12 @@ details[open] p {
   width: 126px;
   height: auto;
 }
+.commerce-header-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px 24px;
+}
 .commerce-home {
   font-size: 15px;
   text-decoration: underline;
@@ -4717,7 +4723,7 @@ details[open] p {
   flex: 1;
   display: grid;
   align-content: center;
-  padding-block: 48px;
+  padding-block: clamp(32px, 4vw, 56px);
 }
 .commerce-label {
   display: block;
@@ -4725,15 +4731,16 @@ details[open] p {
   margin-bottom: 20px;
 }
 .commerce-page h1 {
-  font-size: clamp(38px, 4.4vw, 60px);
+  font-size: clamp(36px, 4.4vw, 60px);
   line-height: 1.05;
   text-wrap: balance;
 }
 .commerce-description {
-  margin-top: 24px;
+  margin: 20px 0 0;
+  max-width: 42ch;
   color: var(--muted);
-  font-size: 19px;
-  line-height: 1.5;
+  font-size: 21px;
+  line-height: 1.45;
 }
 .commerce-button {
   background: var(--green);
@@ -4743,6 +4750,10 @@ details[open] p {
 }
 .commerce-button span {
   flex: none;
+}
+.commerce-button:hover {
+  background: var(--ink);
+  border-color: var(--ink);
 }
 .commerce-footer {
   border-top: 1px solid var(--line);
@@ -4763,25 +4774,127 @@ details[open] p {
 .commerce-footer nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 12px 20px;
   font-size: 14px;
 }
 .commerce-footer nav > a {
-  /* El nav global del prototipo oculta enlaces sin .btn en móvil. */
   display: inline-block;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+.commerce-home:focus-visible,
+.commerce-header a:focus-visible {
+  outline-color: var(--paper);
+  outline-offset: 5px;
+}
+.commerce-button:focus-visible,
+.commerce-invitation a:focus-visible,
+.parte-support a:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 4px;
+}
+
+/* Portada editorial: propuesta y compra primero, detalles debajo. */
 .parte-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
-  gap: clamp(32px, 5vw, 72px);
-  align-items: center;
+  gap: 40px 64px;
+  align-items: start;
 }
-.parte-intro h2 {
+.parte-grid > * {
+  min-width: 0;
+}
+.parte-masthead {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.parte-logo {
+  width: 96px;
+  height: 56px;
+  object-fit: contain;
+}
+.parte-masthead .commerce-label {
+  margin: 0;
+  max-width: 24ch;
+}
+.parte-subscription {
+  padding: 28px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--green);
+}
+.parte-subscription > .label {
+  display: block;
+  margin-bottom: 20px;
+}
+.parte-offer-price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  font:
+    700 52px/1.1 var(--font-archivo),
+    sans-serif;
+  letter-spacing: -0.05em;
+  margin: 0 0 24px;
+}
+.parte-offer-price > span {
+  font-size: 20px;
+  letter-spacing: 0;
+}
+.parte-offer-price > small {
+  font:
+    400 17px/1.4 var(--font-source-sans),
+    sans-serif;
+  letter-spacing: 0;
+}
+.parte-offer .commerce-button {
+  width: 100%;
+  font-size: 17px;
+  padding-inline: 20px;
+}
+.parte-currency-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.4;
+}
+.parte-availability {
+  padding-block: 8px;
+}
+.parte-coming-soon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font:
+    600 28px/1.2 var(--font-archivo),
+    sans-serif;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+.parte-coming-soon > span {
+  width: 10px;
+  height: 10px;
+  flex: none;
+  border: 2px solid var(--green);
+  border-radius: 50%;
+}
+.parte-availability > p + p {
+  color: var(--muted);
+  margin: 12px 0 0;
+  font-size: 16px;
+}
+.commerce-checkout-pending {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.4;
+}
+.parte-details h2,
+.parte-how h2 {
   font-size: 23px;
   letter-spacing: -0.025em;
-  margin-top: 28px;
 }
 .parte-benefits {
   margin: 16px 0 0;
@@ -4804,32 +4917,10 @@ details[open] p {
   height: 6px;
   background: var(--green);
 }
-.parte-subscription {
-  padding: 32px;
-  background: var(--soft);
-  border: 1px solid var(--line);
-  border-top: 4px solid var(--green);
-}
-.parte-subscription > .label {
-  margin-bottom: 14px;
-}
-.parte-subscription .parte-price {
-  font-size: 64px;
-  letter-spacing: -0.05em;
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-}
-.parte-price > span {
-  font-size: 22px;
-  letter-spacing: -0.02em;
-}
-.parte-price-period {
+.parte-publishing {
+  font-size: 15px;
   color: var(--muted);
-  margin: 4px 0 28px;
-}
-.parte-subscription h3 {
-  font-size: 21px;
+  margin: 16px 0 0;
 }
 .commerce-steps {
   list-style: none;
@@ -4847,26 +4938,31 @@ details[open] p {
   left: 0;
   top: 0;
   color: var(--green);
-  font-family: var(--font-archivo), sans-serif;
-  font-weight: 700;
-  font-size: 20px;
+  font:
+    700 20px/1.4 var(--font-archivo),
+    sans-serif;
 }
 .parte-steps {
-  margin: 20px 0 28px;
+  margin: 20px 0 24px;
   font-size: 17px;
   line-height: 1.45;
 }
 .parte-steps li + li {
   margin-top: 18px;
 }
-.parte-subscription .commerce-button {
-  width: 100%;
-  font-size: 17px;
+.parte-support {
+  margin: 20px 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.45;
 }
-.commerce-checkout-pending {
-  margin: 0;
-  font-size: 17px;
+.parte-support a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
+
+/* Confirmación con una acción principal y recomendaciones secundarias. */
 .commerce-thanks {
   max-width: 780px;
   width: 100%;
@@ -4877,14 +4973,14 @@ details[open] p {
   border-top: 1px solid var(--line);
 }
 .academy-next-steps li {
-  padding-block: 20px;
+  padding-block: 18px;
   border-bottom: 1px solid var(--line);
 }
 .academy-next-steps li::before {
-  top: 18px;
+  top: 16px;
 }
 .academy-next-steps h2 {
-  font-size: 22px;
+  font-size: 21px;
   line-height: 1.2;
   letter-spacing: -0.02em;
   margin-bottom: 6px;
@@ -4901,15 +4997,186 @@ details[open] p {
   margin-bottom: 24px;
 }
 .commerce-access-note {
-  margin-block: 32px 24px;
+  margin-block: 28px 20px;
   padding: 24px;
   background: var(--soft);
-  border-left: 3px solid var(--green);
+  border: 1px solid var(--line);
 }
 .commerce-access-note p {
   margin: 0;
   font-size: 21px;
   line-height: 1.5;
+}
+.commerce-invitation {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.commerce-invitation .label {
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.commerce-invitation h2 {
+  font-size: 23px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.commerce-invitation p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.45;
+  margin: 12px 0;
+}
+.commerce-invitation .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 17px;
+  margin-top: 12px;
+  border-bottom: 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Tres niveles, con la academia como producto principal. */
+.pricing-unified {
+  grid-template-columns: minmax(0, 0.82fr) repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+.pricing-unified .plan {
+  padding: 32px 28px;
+  transform: none;
+  box-shadow: none;
+}
+.pricing-unified .plan:not(.plan-parte) {
+  display: flex;
+  flex-direction: column;
+  background: var(--soft);
+  border-color: var(--line);
+}
+.pricing-unified .plan.vip {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.pricing-unified .plan ul {
+  flex: 1;
+  min-height: 0;
+  margin: 0 0 24px;
+  padding-block: 12px;
+  line-height: 1.65;
+}
+.pricing-unified .plan .price {
+  font-size: 64px;
+}
+.pricing-unified .plan .status:empty {
+  display: none;
+}
+.pricing-unified .plan .btn {
+  font-size: 17px;
+}
+.pricing-unified .plan-parte {
+  align-self: start;
+  margin-top: 24px;
+  padding: 24px 20px;
+  border-inline: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.pricing-unified .plan-parte h3 {
+  font-size: 25px;
+}
+.pricing-unified .plan-parte .label {
+  font-size: 13px;
+}
+.pricing-unified .plan-parte > p {
+  font-size: 16px;
+  margin: 12px 0 24px;
+}
+.pricing-unified .plan-parte .parte-offer-price {
+  font-size: 36px;
+  margin: 0 0 20px;
+}
+.pricing-unified .plan-parte .parte-offer-price > span {
+  font-size: 16px;
+}
+.pricing-unified .plan-parte .parte-offer-price > small {
+  font-size: 15px;
+}
+.pricing-unified .plan-parte .commerce-button {
+  background: transparent;
+  color: var(--green);
+  font-size: 16px;
+  padding-inline: 14px;
+}
+.pricing-unified .plan-parte .commerce-button:hover {
+  background: var(--soft);
+}
+.pricing-unified .plan-parte .parte-currency-note {
+  font-size: 14px;
+}
+.pricing-unified .plan-parte ul {
+  font-size: 16px;
+  padding-top: 24px;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+.pricing-unified .plan-parte li + li {
+  margin-top: 12px;
+}
+.pricing-unified .plan-parte .parte-coming-soon {
+  font-size: 24px;
+}
+.nav nav > .nav-parte {
+  display: inline-block;
+}
+.nav nav > .nav-parte:focus-visible {
+  outline-color: var(--paper);
+}
+
+@media (min-width: 681px) and (max-width: 1050px) {
+  .pricing-unified {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pricing-unified .plan-parte {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
+    margin-top: 0;
+    padding: 24px 0;
+  }
+  .pricing-unified .plan-parte > .label,
+  .pricing-unified .plan-parte > h3,
+  .pricing-unified .plan-parte > p,
+  .pricing-unified .plan-parte > .parte-offer,
+  .pricing-unified .plan-parte > .parte-availability {
+    grid-column: 1;
+  }
+  .pricing-unified .plan-parte > ul {
+    grid-column: 2;
+    grid-row: 1 / 5;
+    padding-block: 0;
+  }
+  .nav nav {
+    gap: 18px;
+  }
+  .nav nav > .nav-parte {
+    max-width: 18ch;
+    line-height: 1.3;
+  }
+}
+@media (max-width: 900px) {
+  .parte-grid {
+    gap: 32px;
+  }
+  .parte-subscription {
+    padding: 24px;
+  }
+  .commerce-header-links {
+    gap: 10px 20px;
+  }
 }
 @media (max-width: 760px) {
   .commerce-wrap {
@@ -4922,20 +5189,51 @@ details[open] p {
   .commerce-logo {
     width: 112px;
   }
+  .commerce-header-links {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    padding-block: 12px;
+  }
+  .commerce-home {
+    font-size: 14px;
+  }
   .commerce-main {
-    padding-block: 32px;
+    padding-block: 28px;
   }
   .parte-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
   }
+  .parte-masthead {
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .parte-logo {
+    width: 72px;
+    height: 42px;
+  }
+  .parte-masthead .label {
+    font-size: 13px;
+  }
+  .commerce-description {
+    font-size: 19px;
+    margin-top: 16px;
+  }
   .parte-subscription {
-    padding: 24px;
+    padding: 20px;
+  }
+  .parte-subscription > .label {
+    margin-bottom: 16px;
+  }
+  .parte-offer-price {
+    font-size: 44px;
+    margin-bottom: 20px;
   }
   .commerce-footer-inner {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 12px;
   }
   .commerce-thanks .commerce-button {
     width: 100%;
@@ -4945,4 +5243,45 @@ details[open] p {
   .commerce-access-note {
     padding: 20px;
   }
+  .commerce-access-note p {
+    font-size: 19px;
+  }
+}
+@media (max-width: 680px) {
+  .pricing-unified {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .pricing-unified .plan {
+    padding: 28px 24px;
+  }
+  .pricing-unified .plan-parte {
+    margin-top: 0;
+    padding: 24px 0;
+  }
+  .pricing-unified .plan-parte ul {
+    padding-top: 16px;
+  }
+  .nav nav.has-parte {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  .nav nav > .nav-parte {
+    display: inline-block;
+    font-size: 14px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .nav:has(.has-parte) .nav-inner {
+    height: auto;
+    min-height: 106px;
+    padding-block: 12px;
+    gap: 16px;
+  }
+}
+
+.pricing-unified .vip .btn:focus-visible {
+  outline-color: var(--paper);
 }

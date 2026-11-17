@@ -1,5 +1,7 @@
 import Image from "next/image";
 import type { PageMode } from "@/lib/site-config";
+import { PARTE_LIVE } from "@/lib/site-config";
+import { parteContent } from "@/lib/content";
 
 /**
  * `anchorPrefix` existe para las páginas legales: ahí los anclas sueltas
@@ -22,9 +24,10 @@ export function Nav({ mode, anchorPrefix = "" }: { mode: PageMode; anchorPrefix?
             sizes="(max-width: 680px) 112px, 143px"
           />
         </a>
-        <nav aria-label="Principal">
+        <nav aria-label="Principal" className={PARTE_LIVE ? "has-parte" : undefined}>
           <a href={`${anchorPrefix}#programa`}>El programa</a>
           <a href={`${anchorPrefix}#cesar`}>César Merlo</a>
+          {PARTE_LIVE && <a href="/parte" className="nav-parte">{parteContent.name}</a>}
           <a className="btn" href={ctaHref}>
             {ctaLabel}
             <small aria-hidden="true">↗</small>

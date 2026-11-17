@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { pricingPlans } from "@/lib/content";
+import { pricingPlans, pricingContent, parteContent } from "@/lib/content";
 import { HOTMART_CHECKOUT } from "@/lib/site-config";
+import { ParteOffer } from "./ParteOffer";
 
 function PlanCard({ plan }: { plan: (typeof pricingPlans)[number] }) {
   const checkoutUrl = HOTMART_CHECKOUT[plan.id];
@@ -15,7 +16,7 @@ function PlanCard({ plan }: { plan: (typeof pricingPlans)[number] }) {
       <div className="price">
         <small>US$</small> {plan.price}
       </div>
-      <p>Pago único · acceso de por vida</p>
+      <p>{pricingContent.billing}</p>
       <ul>
         {plan.features.map((feature) => (
           <li key={feature}>{feature}</li>
@@ -35,11 +36,7 @@ function PlanCard({ plan }: { plan: (typeof pricingPlans)[number] }) {
           className={`btn${plan.id === "standard" ? " btn-ink" : ""}`}
           type="button"
           data-checkout={plan.name}
-          onClick={() =>
-            setPendingMessage(
-              `Vista de prueba: aquí se abrirá el checkout de Hotmart del plan ${plan.name}. El enlace definitivo está pendiente.`,
-            )
-          }
+          onClick={() => setPendingMessage(pricingContent.pending(plan.name))}
         >
           {plan.cta} <small aria-hidden="true">↗</small>
         </button>
@@ -56,23 +53,32 @@ export function Pricing() {
     <section className="section rule" id="planes">
       <div className="wrap">
         <div className="section-head">
-          <span className="label red">Elige cómo quieres aprender</span>
-          <h2>El mismo método. Dos formas de vivirlo.</h2>
-          <p>Estudia a tu ritmo con Standard o suma encuentros en vivo y feedback de César con VIP.</p>
+          <span className="label red">{pricingContent.label}</span>
+          <h2>{pricingContent.title}</h2>
+          <p>{pricingContent.description}</p>
         </div>
-        <div className="pricing">
+        <div className="pricing pricing-unified">
+          <article className="plan plan-parte">
+            <span className="label">{parteContent.tierLabel}</span>
+            <h3>{parteContent.name}</h3>
+            <p>{parteContent.label}</p>
+            <ParteOffer />
+            <ul>
+              {parteContent.benefits.map((benefit) => (
+                <li key={benefit}>{benefit}</li>
+              ))}
+            </ul>
+          </article>
           {pricingPlans.map((plan) => (
             <PlanCard key={plan.id} plan={plan} />
           ))}
         </div>
         <p className="guarantee">
-          <strong>¿No sabes cuál elegir?</strong> Standard es el método completo. VIP es el
-          método con César revisando tu trabajo.
+          <strong>{pricingContent.guidanceTitle}</strong>{" "}
+          {pricingContent.guidance}
         </p>
-        <p className="guarantee">Pago a través de Hotmart · Garantía de devolución de 7 días</p>
-        <p className="guarantee">
-          Los medios de pago y las cuotas disponibles se mostrarán en el checkout.
-        </p>
+        <p className="guarantee">{pricingContent.guarantee}</p>
+        <p className="guarantee">{pricingContent.payments}</p>
       </div>
     </section>
   );

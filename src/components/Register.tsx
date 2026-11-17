@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { useTallyEmbed } from "@/hooks/useTallyEmbed";
 import { TALLY_CONTINUE_EVENT } from "./HeroForm";
 import { TALLY_FORM_ID } from "@/lib/site-config";
+import { ParteInvitation } from "./ParteInvitation";
 
 export function Register() {
-  const { configured, slotRef, frameHostRef, mount, status, fallbackHref } =
+  const { configured, slotRef, frameHostRef, mount, status, fallbackHref, submitted } =
     useTallyEmbed(TALLY_FORM_ID);
   const [mockStatus, setMockStatus] = useState("");
   const [mockEmailValue, setMockEmail] = useState("");
@@ -106,6 +107,7 @@ export function Register() {
           >
             Abrir el formulario en otra pestaña
           </a>
+          {submitted && <ParteInvitation afterWaitlist />}
         </div>
       </div>
     </section>

@@ -3,6 +3,10 @@ import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import vm from "node:vm";
 import ts from "typescript";
+import { createSourceLoader } from "./helpers/load-source.mjs";
+
+const content = createSourceLoader()("src/lib/content.ts");
+const importContent = () => content;
 
 const source = readFileSync(new URL("../src/lib/meta-pixel.ts", import.meta.url), "utf8");
 const compiled = ts.transpileModule(source, {
@@ -32,7 +36,7 @@ function browser(initialUrl = "/gracias?email=private@example.test#buyer") {
     head: { appendChild: (script) => scripts.push({ ...script, urlAtLoad: url }) },
   };
   const exports = {};
-  vm.runInNewContext(compiled, { exports, window, document });
+  vm.runInNewContext(compiled, { exports, window, document, require: importContent });
   return {
     track: exports.trackMetaPage,
     scripts,
@@ -54,7 +58,7 @@ test("empty or invalid ID is a no-op, including URL and script loading", () => {
 
 test("SSR never accesses browser globals", () => {
   const exports = {};
-  vm.runInNewContext(compiled, { exports });
+  vm.runInNewContext(compiled, { exports, require: importContent });
   assert.doesNotThrow(() => exports.trackMetaPage("12345", "/gracias"));
 });
 
@@ -95,6 +99,7 @@ test("shared academy URL does not invent a plan price; Parte identifies its prod
   assert.deepEqual(purchases[0][3].content_ids, ["7636264"]);
   assert.equal(purchases[0][3].value, undefined);
   assert.deepEqual(purchases[1][3].content_ids, ["8990968"]);
+  assert.equal(purchases[1][3].content_name, content.parteContent.name);
   assert.equal(purchases[1][3].value, 5.99);
   assert.equal(purchases[1][3].currency, "USD");
 });
