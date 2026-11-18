@@ -23,6 +23,8 @@ const contentSecurityPolicy = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Hostinger Web Apps requiere el servidor empaquetado en .next/standalone.
+  output: "standalone",
   // .ts falla al compilar en hosts con glibc vieja (SWC nativo no carga
   // ahí y el loader de config de Next se rompe al intentar el fallback):
   // .mjs lo evita por completo, no necesita compilarse. Mismo patrón que

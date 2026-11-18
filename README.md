@@ -274,6 +274,25 @@ está reconstruyendo los archivos del último despliegue exitoso, que pueden
 ser anteriores a esta corrección. Un reinicio o una purga de Cloudflare no
 incorpora los commits nuevos. Las variables `NEXT_PUBLIC_*` requieren build.
 
+Hostinger debe mantener Node.js 22, npm, `npm run build` y el directorio de
+salida `.next`. `output: "standalone"` en `next.config.mjs` genera
+`.next/standalone/server.js`, que necesita el empaquetador de Hostinger.
+Sin esa opción, Next puede compilar correctamente pero la plataforma rechaza
+el resultado con `Next.js build produced no standalone server or static output`.
+
+Para comprobar el servidor standalone localmente después del build, incluir
+los assets que Next no copia por defecto y arrancar su entrypoint:
+
+```bash
+cp -R public .next/standalone/
+cp -R .next/static .next/standalone/.next/
+PORT=3100 HOSTNAME=127.0.0.1 node .next/standalone/server.js
+```
+
+Los avisos de checkouts ausentes no impiden el build, pero sin las variables
+`NEXT_PUBLIC_HOTMART_CHECKOUT_STANDARD` y `_VIP` los planes no tienen enlaces
+de compra. Sus valores están en la tabla de Hotmart y en `.env.example`.
+
 ## Scripts
 
 ```bash
