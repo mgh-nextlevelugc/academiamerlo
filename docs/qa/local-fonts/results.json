@@ -1,0 +1,206 @@
+{
+  "date": "2026-11-17",
+  "baselineCommit": "56cd4501eda5df561b1dbd1cf057a0dd0d42d1bf",
+  "build": "next build --webpack; empty .next; Node HTTP/HTTPS/TCP/TLS/fetch blocked; telemetry disabled",
+  "server": "next start, local production builds on ports 3100 and 3101",
+  "flags": {
+    "NEXT_PUBLIC_PHASE": "waitlist",
+    "NEXT_PUBLIC_PARTE_LIVE": "off",
+    "NEXT_PUBLIC_META_PIXEL_ID": ""
+  },
+  "browser": "Isolated headless Chromium; external requests blocked; reduced motion",
+  "checks": [
+    {
+      "route": "/",
+      "width": 375,
+      "equalLayout": true,
+      "headingsAndBlocks": 43,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/inscripciones",
+      "width": 375,
+      "equalLayout": true,
+      "headingsAndBlocks": 56,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/lista",
+      "width": 375,
+      "equalLayout": true,
+      "headingsAndBlocks": 43,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/parte",
+      "width": 375,
+      "equalLayout": true,
+      "headingsAndBlocks": 9,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/gracias",
+      "width": 375,
+      "equalLayout": true,
+      "headingsAndBlocks": 9,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/parte/gracias",
+      "width": 375,
+      "equalLayout": true,
+      "headingsAndBlocks": 5,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/privacidad",
+      "width": 375,
+      "equalLayout": true,
+      "headingsAndBlocks": 26,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/terminos",
+      "width": 375,
+      "equalLayout": true,
+      "headingsAndBlocks": 23,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "equalLayout": true,
+      "headingsAndBlocks": 43,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/inscripciones",
+      "width": 1280,
+      "equalLayout": true,
+      "headingsAndBlocks": 56,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/lista",
+      "width": 1280,
+      "equalLayout": true,
+      "headingsAndBlocks": 43,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/parte",
+      "width": 1280,
+      "equalLayout": true,
+      "headingsAndBlocks": 9,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/gracias",
+      "width": 1280,
+      "equalLayout": true,
+      "headingsAndBlocks": 9,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/parte/gracias",
+      "width": 1280,
+      "equalLayout": true,
+      "headingsAndBlocks": 5,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/privacidad",
+      "width": 1280,
+      "equalLayout": true,
+      "headingsAndBlocks": 26,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    },
+    {
+      "route": "/terminos",
+      "width": 1280,
+      "equalLayout": true,
+      "headingsAndBlocks": 23,
+      "fontRequests": [
+        "/_next/static/media/692df4da22e71021-s.p.woff2",
+        "/_next/static/media/c214ffb7f5362987-s.p.woff2"
+      ],
+      "clsBefore": 0,
+      "clsAfter": 0
+    }
+  ]
+}

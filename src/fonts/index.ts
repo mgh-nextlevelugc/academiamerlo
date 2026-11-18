@@ -1,19 +1,30 @@
-import { Archivo, Source_Sans_3 } from "next/font/google";
+import localFont from "next/font/local";
 
-// Reemplaza la fuente embebida en base64 (ArchivoDisplay, ~888KB) del
-// prototipo. Variable en wght + wdth para igualar los font-variation-settings
-// usados en program-live/stat/portrait-caption.
-export const archivo = Archivo({
-  subsets: ["latin"],
-  weight: "variable",
-  axes: ["wdth"],
+// WOFF2 oficiales versionados: el build no necesita conectarse a Google.
+// Conserva wght + wdth y el nombre Archivo usado también en globals.css.
+// Origen, hashes y licencias: ./README.md.
+export const archivo = localFont({
+  src: "./archivo/latin.woff2",
+  weight: "100 900",
+  style: "normal",
   display: "swap",
   variable: "--font-archivo",
+  declarations: [
+    { prop: "font-family", value: "Archivo" },
+    { prop: "font-stretch", value: "62% 125%" },
+  ],
 });
 
-export const sourceSans3 = Source_Sans_3({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+export const sourceSans3 = localFont({
+  // Un solo archivo variable; mantiene los cuatro pesos publicados antes.
+  src: [
+    { path: "./sourcesans3/latin.woff2", weight: "400" },
+    { path: "./sourcesans3/latin.woff2", weight: "500" },
+    { path: "./sourcesans3/latin.woff2", weight: "600" },
+    { path: "./sourcesans3/latin.woff2", weight: "700" },
+  ],
+  style: "normal",
   display: "swap",
   variable: "--font-source-sans",
+  declarations: [{ prop: "font-family", value: "Source Sans 3" }],
 });

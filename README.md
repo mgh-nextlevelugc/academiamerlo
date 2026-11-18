@@ -52,8 +52,8 @@ Ver `.env.example`. Las que importan para decidir qué se ve:
 
 ## Hotmart: venta y páginas de gracias
 
-Configurar estas variables en **Production y Preview** de Vercel. En esta
-entrega se preparan en local; no se cambió la configuración remota:
+Configurar estas variables en **Hostinger Web Apps**, que publica el sitio
+detrás de Cloudflare. La configuración remota se administra en hPanel:
 
 | Variable | Valor |
 | --- | --- |
@@ -134,7 +134,7 @@ sitemap, aviso de checkout ausente y las pruebas existentes de Pixel.
 Capturas antes/después y resultados: [QA visual](docs/qa/unified-launch/README.md).
 Las capturas usan un navegador aislado contra `next build` + `next start`.
 No envían formularios reales, compras ni eventos a Meta. La configuración de
-Vercel debe cargarse antes del despliegue y sigue a cargo de Migue.
+Hostinger debe cargarse antes del despliegue y sigue a cargo de Migue.
 
 ### Medición
 
@@ -252,8 +252,27 @@ cosméticos):
 - Formulario de Tally en DRAFT (ver más arriba).
 - Los links de Hotmart están definidos en `.env.example`; verificar las
   ofertas y configurar las variables del deployment antes de vender.
-- Dominio y hosting: `academiamerlo.com` está comprado; falta decidir
-  dónde se hostea y conectar el deploy (ver `NEXT_PUBLIC_SITE_URL`).
+- Hosting confirmado: Hostinger Web Apps detrás de Cloudflare. Verificar
+  que el despliegue tome el último commit de `main` y las variables de hPanel.
+
+## Fuentes y build en Hostinger
+
+Archivo y Source Sans 3 se cargan con `next/font/local` desde WOFF2
+versionados en `src/fonts/`. El build no descarga fuentes de Google.
+Los archivos son idénticos a los subconjuntos latinos del build anterior;
+se conservan los pesos, el eje de ancho de Archivo y las variables CSS.
+Origen, hashes y licencias: [fuentes locales](src/fonts/README.md).
+
+El fallo `Cannot read properties of null (reading '1')` del cargador Google
+ocurría al extraer la extensión de una URL descargada, con Next.js 16.3.8.
+El cambio a archivos locales elimina ese paso sin actualizar Next.js.
+Los avisos de GLIBC del log son distintos: ese build continuó con SWC WASM.
+
+Para publicar la corrección, desplegar el código actualizado de GitHub,
+rama `main`. Si el log dice `Source: previous deployment source`, Hostinger
+está reconstruyendo los archivos del último despliegue exitoso, que pueden
+ser anteriores a esta corrección. Un reinicio o una purga de Cloudflare no
+incorpora los commits nuevos. Las variables `NEXT_PUBLIC_*` requieren build.
 
 ## Scripts
 

@@ -14,7 +14,7 @@
  * cascada a mano es mas riesgoso que mantenerla completa.
  *
  * Fuente embebida (ArchivoDisplay, TTF base64 ~888KB) reemplazada por
- * next/font/google (ver src/fonts/index.ts); --display ahora apunta a
+ * next/font/local (ver src/fonts/index.ts); --display ahora apunta a
  * var(--font-archivo).
  */
 
