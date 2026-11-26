@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CommerceShell } from "@/components/CommerceShell";
 import { ParteSupport } from "@/components/ParteSupport";
-import { parteContent } from "@/lib/content";
+import { commerceContent, parteContent } from "@/lib/content";
 import { PARTE_ACCESS_MAX_HOURS, SITE_PHASE } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -10,6 +10,20 @@ export const metadata: Metadata = {
   description: parteContent.thanks.description,
   alternates: { canonical: "/parte/gracias" },
   robots: { index: false, follow: false },
+  openGraph: {
+    title: parteContent.thanks.title(parteContent.name),
+    description: parteContent.thanks.description,
+    url: "/parte/gracias",
+    locale: "es_MX",
+    siteName: commerceContent.brand,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: parteContent.thanks.title(parteContent.name),
+    description: parteContent.thanks.description,
+    images: [{ url: "/parte/opengraph-image", alt: parteContent.name }],
+  },
 };
 
 export default function ParteGraciasPage() {

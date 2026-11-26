@@ -21,6 +21,7 @@ for (const phase of ["waitlist", "launch"]) {
     test(`${phase}/${live}: checkout, navigation, invitations and SEO follow independent flags`, () => {
       const env = {
         ...checkout,
+        NEXT_PUBLIC_SITE_URL: "https://academiamerlo.com",
         NEXT_PUBLIC_PHASE: phase,
         NEXT_PUBLIC_PARTE_LIVE: live,
       };
@@ -60,13 +61,22 @@ for (const phase of ["waitlist", "launch"]) {
           assert.equal(page.metadata.title, content.name);
           assert.equal(
             page.metadata.robots?.index,
-            phase === "waitlist" ? false : undefined,
+            phase === "launch" && live === "on" ? undefined : false,
           );
+          assert.equal(page.metadata.openGraph.locale, "es_MX");
+          assert.equal(page.metadata.openGraph.siteName, "Academia Merlo");
+          assert.equal(page.metadata.openGraph.type, "website");
+          assert.equal(page.metadata.twitter.card, "summary_large_image");
+          assert.equal(page.metadata.twitter.images[0].url, "/parte/opengraph-image");
           assert.equal(html.includes(content.comingSoon), live === "off");
           assert.ok(html.includes(content.steps[1]));
           assert.ok(html.includes("72 horas"));
         }
         if (file.includes("parte/gracias")) {
+          for (const metadata of [page.metadata, page.metadata.openGraph, page.metadata.twitter]) {
+            assert.equal(metadata.description, content.thanks.description);
+          }
+          assert.ok(html.includes(content.thanks.access(72)));
           assert.equal(
             html.includes("data-academy-invitation"),
             phase === "launch",
@@ -90,6 +100,27 @@ for (const phase of ["waitlist", "launch"]) {
         .default()
         .map((entry) => entry.url);
       assert.ok(urls.every((url) => !url.includes("gracias")));
+      assert.ok(urls.includes(env.NEXT_PUBLIC_SITE_URL));
+      assert.equal(urls.includes(`${env.NEXT_PUBLIC_SITE_URL}/parte`), phase === "launch" && live === "on");
+      assert.ok(!urls.includes(`${env.NEXT_PUBLIC_SITE_URL}/inscripciones`));
+      const robots = load("src/app/robots").default();
+      assert.equal(robots.rules.length, 1);
+      assert.equal(robots.rules[0].userAgent, "*");
+      assert.equal(robots.rules[0].allow, "/");
+
+      for (const file of ["src/app/page", "src/app/inscripciones/page", "src/app/lista/page"]) {
+        const page = load(file);
+        const html = render(page.default);
+        const sales = file.includes("inscripciones") || (file === "src/app/page" && phase === "launch");
+        assert.equal(html.includes('id="planes"'), sales);
+        assert.equal(html.includes(checkout.NEXT_PUBLIC_HOTMART_CHECKOUT_STANDARD), sales);
+        assert.ok(html.includes("módulo a módulo"));
+        assert.ok(html.includes("a partir del día 8 desde tu compra"));
+        if (file.includes("inscripciones")) {
+          assert.equal(page.metadata.robots?.index, phase === "waitlist" ? false : undefined);
+          assert.equal(page.metadata.alternates?.canonical, phase === "launch" ? "/" : undefined);
+        }
+      }
 
       for (const submitted of [false, true]) {
         const register = createSourceLoader(env, {
@@ -114,6 +145,12 @@ for (const phase of ["waitlist", "launch"]) {
           submitted && live === "on",
         );
       }
+      for (const file of ["src/app/privacidad/page", "src/app/terminos/page"]) {
+        const html = render(load(file).default);
+        assert.ok(html.includes(`href="/${phase === "launch" ? "#planes" : "#lista"}"`));
+        // Los cambios legales siguen pendientes de aprobación, no se publican.
+        assert.ok(html.includes("admin@roikon.com"));
+      }
     });
   }
 }
@@ -135,7 +172,29 @@ test("missing or unknown flag defaults to off; missing checkout never produces a
     });
     const html = render(load("src/components/ParteOffer").ParteOffer);
     assert.ok(!html.includes("<a"));
-    assert.ok(html.includes(load("src/lib/content").parteContent.checkoutPending));
+    assert.ok(html.includes(load("src/lib/content").parteContent.comingSoon));
+    assert.ok(!html.includes('class="btn'));
+    assert.ok(!html.includes("<button"));
+    const pricing = render(load("src/components/Pricing").Pricing);
+    assert.ok(!pricing.includes("<button"));
+    assert.ok(!pricing.includes('class="btn'));
+    assert.ok(!pricing.includes("pay.hotmart.com"));
+    assert.equal((pricing.match(/Próximamente/g) ?? []).length, 3);
+  }
+});
+
+test("missing academy checkout hides only that plan's purchase action", () => {
+  for (const [missing, available] of [["STANDARD", "VIP"], ["VIP", "STANDARD"]]) {
+    const load = createSourceLoader({
+      ...checkout,
+      [`NEXT_PUBLIC_HOTMART_CHECKOUT_${missing}`]: "  ",
+      NEXT_PUBLIC_PARTE_LIVE: "off",
+    });
+    const html = render(load("src/components/Pricing").Pricing);
+    assert.ok(!html.includes(checkout[`NEXT_PUBLIC_HOTMART_CHECKOUT_${missing}`]));
+    assert.ok(html.includes(checkout[`NEXT_PUBLIC_HOTMART_CHECKOUT_${available}`]));
+    assert.ok(!html.includes("<button"));
+    assert.equal((html.match(/Próximamente/g) ?? []).length, 2);
   }
 });
 

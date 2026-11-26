@@ -3,21 +3,29 @@ import Image from "next/image";
 import { CommerceShell } from "@/components/CommerceShell";
 import { ParteOffer } from "@/components/ParteOffer";
 import { ParteSupport } from "@/components/ParteSupport";
-import { parteContent } from "@/lib/content";
-import { PARTE_ACCESS_MAX_HOURS, SITE_PHASE } from "@/lib/site-config";
+import { commerceContent, parteContent } from "@/lib/content";
+import { PARTE_ACCESS_MAX_HOURS, PARTE_LIVE, SITE_PHASE } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: parteContent.name,
   description: parteContent.description,
   alternates: { canonical: "/parte" },
   robots:
-    SITE_PHASE === "waitlist" ? { index: false, follow: false } : undefined,
+    SITE_PHASE === "waitlist" || !PARTE_LIVE ? { index: false, follow: false } : undefined,
   openGraph: {
     title: parteContent.name,
     description: parteContent.tagline,
     url: "/parte",
+    locale: "es_MX",
+    siteName: commerceContent.brand,
+    type: "website",
   },
-  twitter: { title: parteContent.name, description: parteContent.tagline },
+  twitter: {
+    card: "summary_large_image",
+    title: parteContent.name,
+    description: parteContent.tagline,
+    images: [{ url: "/parte/opengraph-image", alt: parteContent.name }],
+  },
 };
 
 export default function PartePage() {

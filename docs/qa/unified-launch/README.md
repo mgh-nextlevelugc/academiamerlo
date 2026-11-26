@@ -123,7 +123,7 @@ adaptadores de imagen y Link se simplifican para render estático.
 
 ## Preparación del despliegue
 
-Cargar en Vercel Production y Preview antes de construir: PHASE,
+Cargar en Hostinger Web Apps antes de construir: PHASE,
 PARTE_LIVE y los tres checkouts de [.env.example](../../../.env.example).
 Mantener META_PIXEL_ID vacío. Primero `launch/off`; luego `launch/on` cuando
 el equipo habilite la comunidad. La rama y el PR no cambian esas variables.

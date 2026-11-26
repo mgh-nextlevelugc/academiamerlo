@@ -172,7 +172,7 @@ export const faqWaitlist = [
   },
   {
     q: "¿Cómo funciona?",
-    a: "Los módulos son grabados y puedes avanzar a tu ritmo. La modalidad VIP suma encuentros en vivo y espacios de consulta.",
+    a: "Los módulos son grabados. Empiezas por el Módulo 1 y cada módulo siguiente se habilita al aprobar el quiz del anterior. Los módulos 4 a 6 se habilitan a partir del día 8 desde tu compra. La modalidad VIP suma encuentros en vivo y espacios de consulta.",
   },
   {
     q: "¿Me sirve si no quiero ser periodista?",
@@ -199,7 +199,7 @@ export const faqVenta = [
   },
   {
     q: "¿Cómo funciona?",
-    a: "Los módulos son grabados y puedes avanzar a tu ritmo. La modalidad VIP suma encuentros en vivo y espacios de consulta.",
+    a: "Los módulos son grabados. Empiezas por el Módulo 1 y cada módulo siguiente se habilita al aprobar el quiz del anterior. Los módulos 4 a 6 se habilitan a partir del día 8 desde tu compra. La modalidad VIP suma encuentros en vivo y espacios de consulta.",
   },
   {
     q: "¿Hasta cuándo tengo acceso?",
@@ -207,7 +207,7 @@ export const faqVenta = [
   },
   {
     q: "¿Puedo pagar en cuotas?",
-    a: "Las opciones disponibles dependen de tu país y del medio de pago. Puedes consultarlas en Hotmart antes de confirmar la compra.",
+    a: "El precio es de pago único. Los medios de pago disponibles dependen de tu país y se muestran en Hotmart antes de confirmar la compra.",
   },
   {
     q: "¿Qué pasa si el programa no es para mí?",
@@ -217,7 +217,7 @@ export const faqVenta = [
 
 export const courseFacts = [
   { strong: "6 módulos", span: "26 lecciones" },
-  { strong: "Online", span: "y a tu ritmo" },
+  { strong: "Online", span: "módulo a módulo" },
   { strong: "+45 materiales", span: "para aplicar" },
 ] as const;
 
@@ -284,7 +284,6 @@ export const parteContent = {
   cta: "Suscribirme en Hotmart",
   discoverCta: "Conocer la comunidad",
   comingSoon: "Próximamente",
-  checkoutPending: "La suscripción no está disponible en este momento.",
   localCurrency: "Hotmart muestra el precio en tu moneda al pagar.",
   supportPrompt: "¿Dejaste un número equivocado? Escríbenos a",
   supportEmail: "info@roikon.com",
@@ -308,7 +307,7 @@ export const academyThanksContent = {
   heading: "Ya eres parte de Academia Merlo.",
   steps: [
     { title: "Revisa tu email", text: "Hotmart te envía el acceso al programa." },
-    { title: "Empieza por el Módulo 1", text: "Entra al área de miembros y empieza por el Módulo 1." },
+    { title: "Empieza por el Módulo 1", text: "Entra al área de miembros y empieza por el Módulo 1. Cada módulo siguiente se habilita al aprobar el quiz del anterior, y los módulos 4 a 6 a partir del día 8." },
     { title: "Si compraste VIP", text: "El equipo te escribe por email con el calendario de encuentros en vivo." },
   ],
   note: "Si no ves el email en unos minutos, revisa spam o promociones.",
@@ -318,13 +317,13 @@ export const academyThanksContent = {
 export const pricingContent = {
   label: "Elige cómo quieres aprender",
   title: "El mismo método. Dos formas de vivirlo.",
-  description: "Estudia a tu ritmo con Standard o suma encuentros en vivo y feedback de César con VIP.",
+  description: "Elige Standard para hacer el programa completo o suma encuentros en vivo y feedback de César con VIP.",
   billing: "Pago único · acceso de por vida",
   guidanceTitle: "¿No sabes cuál elegir?",
   guidance: "Standard es el método completo. VIP es el método con César revisando tu trabajo.",
   guarantee: "Pago a través de Hotmart · Garantía de devolución de 7 días",
-  payments: "Los medios de pago y las cuotas disponibles se mostrarán en el checkout.",
-  pending: (name: string) => `Vista de prueba: aquí se abrirá el checkout de Hotmart del plan ${name}. El enlace definitivo está pendiente.`,
+  payments: "Los medios de pago disponibles se muestran en el checkout, en tu moneda local.",
+  comingSoon: "Próximamente",
 } as const;
 
 export const commerceContent = {
@@ -332,6 +331,7 @@ export const commerceContent = {
   home: "Volver al inicio",
   homeLabel: "Academia Merlo, inicio",
   brand: "Academia Merlo",
+  socialDescription: "Periodismo en el mercado de pases con César Luis Merlo",
   motto: "La noticia no se mancha.",
   legal: "Información legal",
   privacy: "Privacidad",

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SITE_PHASE, SITE_URL } from "@/lib/site-config";
+import { PARTE_LIVE, SITE_PHASE, SITE_URL } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [
@@ -10,7 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   if (SITE_PHASE === "launch") {
     entries.push({ url: `${SITE_URL}/lista`, changeFrequency: "monthly", priority: 0.5 });
-    entries.push({ url: `${SITE_URL}/parte`, changeFrequency: "monthly", priority: 0.7 });
+    if (PARTE_LIVE) {
+      entries.push({ url: `${SITE_URL}/parte`, changeFrequency: "monthly", priority: 0.7 });
+    }
   }
 
   return entries;

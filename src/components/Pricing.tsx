@@ -1,13 +1,9 @@
-"use client";
-
-import { useState } from "react";
 import { pricingPlans, pricingContent, parteContent } from "@/lib/content";
 import { HOTMART_CHECKOUT } from "@/lib/site-config";
 import { ParteOffer } from "./ParteOffer";
 
 function PlanCard({ plan }: { plan: (typeof pricingPlans)[number] }) {
   const checkoutUrl = HOTMART_CHECKOUT[plan.id];
-  const [pendingMessage, setPendingMessage] = useState("");
 
   return (
     <article className={`plan${plan.vip ? " vip" : ""}`}>
@@ -32,18 +28,11 @@ function PlanCard({ plan }: { plan: (typeof pricingPlans)[number] }) {
           {plan.cta} <small aria-hidden="true">↗</small>
         </a>
       ) : (
-        <button
-          className={`btn${plan.id === "standard" ? " btn-ink" : ""}`}
-          type="button"
-          data-checkout={plan.name}
-          onClick={() => setPendingMessage(pricingContent.pending(plan.name))}
-        >
-          {plan.cta} <small aria-hidden="true">↗</small>
-        </button>
+        <p className="parte-coming-soon plan-coming-soon">
+          <span aria-hidden="true" />
+          {pricingContent.comingSoon}
+        </p>
       )}
-      <div className="status" role="status">
-        {pendingMessage}
-      </div>
     </article>
   );
 }

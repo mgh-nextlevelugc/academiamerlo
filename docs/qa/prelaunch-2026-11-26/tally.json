@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-26",
+  "url": "https://tally.so/embed/aQ8N92",
+  "status": 200,
+  "closed": false,
+  "preview": false,
+  "publicDefinitionReviewed": true,
+  "steps": [
+    "email requerido",
+    "nombre requerido",
+    "perfil opcional",
+    "WhatsApp opcional",
+    "consentimiento requerido",
+    "confirmación"
+  ],
+  "hiddenFields": [
+    "email",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_content",
+    "utm_term",
+    "ref"
+  ],
+  "externalCopyIssue": {
+    "location": "Placeholder del selector de perfil",
+    "issue": "Usa voseo",
+    "replacement": "Elige una opción"
+  },
+  "realSubmission": false
+}

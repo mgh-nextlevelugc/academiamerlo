@@ -4878,8 +4878,12 @@ details[open] p {
   width: 10px;
   height: 10px;
   flex: none;
-  border: 2px solid var(--green);
+  border: 2px solid currentColor;
   border-radius: 50%;
+}
+.pricing-unified .plan .plan-coming-soon {
+  font-size: 24px;
+  margin-top: auto;
 }
 .parte-availability > p + p {
   color: var(--muted);

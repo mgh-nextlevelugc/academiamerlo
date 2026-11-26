@@ -1,0 +1,804 @@
+{
+  "date": "2026-11-26",
+  "runtime": "v24.13.0",
+  "server": "next build --webpack + standalone server",
+  "formMode": "Tally simulated; no real leads or purchases",
+  "routes": [
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": [
+        "https://pay.hotmart.com/K105579077Y?off=ck9jh14u",
+        "https://pay.hotmart.com/K105579077Y?off=924zdazg",
+        "https://pay.hotmart.com/W108525490P"
+      ]
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/inscripciones",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": [
+        "https://pay.hotmart.com/K105579077Y?off=ck9jh14u",
+        "https://pay.hotmart.com/K105579077Y?off=924zdazg",
+        "https://pay.hotmart.com/W108525490P"
+      ]
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/lista",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/parte",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": [
+        "https://pay.hotmart.com/W108525490P"
+      ]
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/gracias",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/parte/gracias",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/privacidad",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/terminos",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": [
+        "https://pay.hotmart.com/K105579077Y?off=ck9jh14u",
+        "https://pay.hotmart.com/K105579077Y?off=924zdazg",
+        "https://pay.hotmart.com/W108525490P"
+      ]
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/inscripciones",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": [
+        "https://pay.hotmart.com/K105579077Y?off=ck9jh14u",
+        "https://pay.hotmart.com/K105579077Y?off=924zdazg",
+        "https://pay.hotmart.com/W108525490P"
+      ]
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/lista",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/parte",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": [
+        "https://pay.hotmart.com/W108525490P"
+      ]
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/gracias",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/parte/gracias",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/privacidad",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "on",
+      "route": "/terminos",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": [
+        "https://pay.hotmart.com/K105579077Y?off=ck9jh14u",
+        "https://pay.hotmart.com/K105579077Y?off=924zdazg"
+      ]
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/inscripciones",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": [
+        "https://pay.hotmart.com/K105579077Y?off=ck9jh14u",
+        "https://pay.hotmart.com/K105579077Y?off=924zdazg"
+      ]
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/lista",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/parte",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/gracias",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/parte/gracias",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/privacidad",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/terminos",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": [
+        "https://pay.hotmart.com/K105579077Y?off=ck9jh14u",
+        "https://pay.hotmart.com/K105579077Y?off=924zdazg"
+      ]
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/inscripciones",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": [
+        "https://pay.hotmart.com/K105579077Y?off=ck9jh14u",
+        "https://pay.hotmart.com/K105579077Y?off=924zdazg"
+      ]
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/lista",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/parte",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/gracias",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/parte/gracias",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/privacidad",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "route": "/terminos",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/inscripciones",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": [
+        "https://pay.hotmart.com/K105579077Y?off=ck9jh14u",
+        "https://pay.hotmart.com/K105579077Y?off=924zdazg",
+        "https://pay.hotmart.com/W108525490P"
+      ]
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/lista",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, follow",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/parte",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": [
+        "https://pay.hotmart.com/W108525490P"
+      ]
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/gracias",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/parte/gracias",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/privacidad",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/terminos",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/inscripciones",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": [
+        "https://pay.hotmart.com/K105579077Y?off=ck9jh14u",
+        "https://pay.hotmart.com/K105579077Y?off=924zdazg",
+        "https://pay.hotmart.com/W108525490P"
+      ]
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/lista",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, follow",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/parte",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": [
+        "https://pay.hotmart.com/W108525490P"
+      ]
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/gracias",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/parte/gracias",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/privacidad",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "route": "/terminos",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/inscripciones",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": [
+        "https://pay.hotmart.com/K105579077Y?off=ck9jh14u",
+        "https://pay.hotmart.com/K105579077Y?off=924zdazg"
+      ]
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/lista",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, follow",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/parte",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/gracias",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/parte/gracias",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/privacidad",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/terminos",
+      "width": 375,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/inscripciones",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": [
+        "https://pay.hotmart.com/K105579077Y?off=ck9jh14u",
+        "https://pay.hotmart.com/K105579077Y?off=924zdazg"
+      ]
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/lista",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, follow",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/parte",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/gracias",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/parte/gracias",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "noindex, nofollow",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/privacidad",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "route": "/terminos",
+      "width": 1280,
+      "status": 200,
+      "overflow": false,
+      "errors": 0,
+      "robots": "",
+      "hotmart": []
+    }
+  ],
+  "forms": [
+    {
+      "phase": "launch",
+      "live": "on",
+      "prefill": true,
+      "utmAndRef": true,
+      "noRemountAfterInteraction": true,
+      "invalidMessagesRejected": true,
+      "confirmation": true,
+      "realSubmission": false
+    },
+    {
+      "phase": "launch",
+      "live": "off",
+      "prefill": true,
+      "utmAndRef": true,
+      "noRemountAfterInteraction": true,
+      "invalidMessagesRejected": true,
+      "confirmation": true,
+      "realSubmission": false
+    },
+    {
+      "phase": "waitlist",
+      "live": "on",
+      "prefill": true,
+      "utmAndRef": true,
+      "noRemountAfterInteraction": true,
+      "invalidMessagesRejected": true,
+      "confirmation": true,
+      "realSubmission": false
+    },
+    {
+      "phase": "waitlist",
+      "live": "off",
+      "prefill": true,
+      "utmAndRef": true,
+      "noRemountAfterInteraction": true,
+      "invalidMessagesRejected": true,
+      "confirmation": true,
+      "realSubmission": false
+    }
+  ]
+}

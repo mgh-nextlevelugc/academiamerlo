@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-26",
+  "mode": "Read-only; no purchases or buyer/payment data submitted",
+  "results": [
+    {
+      "product": "standard",
+      "inputUrl": "https://pay.hotmart.com/K105579077Y?off=ck9jh14u",
+      "status": 200,
+      "country": "United States",
+      "prices": [
+        "174,00 US$",
+        "174,00 US$",
+        "Total de 174,00 US$",
+        "174,00 US$"
+      ],
+      "productCorrect": true,
+      "terminologyNeedsUpdate": false
+    },
+    {
+      "product": "vip",
+      "inputUrl": "https://pay.hotmart.com/K105579077Y?off=924zdazg",
+      "status": 200,
+      "country": "United States",
+      "prices": [
+        "497,00 US$",
+        "497,00 US$",
+        "Total de 497,00 US$",
+        "497,00 US$"
+      ],
+      "productCorrect": true,
+      "vipDescriptionPresent": true,
+      "terminologyNeedsUpdate": false
+    },
+    {
+      "product": "comunidad",
+      "inputUrl": "https://pay.hotmart.com/W108525490P",
+      "status": 200,
+      "country": "United States",
+      "prices": [
+        "5,99 US$ / mes",
+        "5,99 US$ / mes",
+        "Total de 5,99 US$",
+        "5,99 US$ / mes"
+      ],
+      "productCorrect": true,
+      "monthly": true,
+      "terminologyNeedsUpdate": true
+    }
+  ]
+}

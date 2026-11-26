@@ -1,7 +1,9 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { commerceContent } from "@/lib/content";
 
+export const alt = commerceContent.socialDescription;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -42,7 +44,7 @@ export default async function Image() {
             maxWidth: 820,
           }}
         >
-          Periodismo en el mercado de pases con César Luis Merlo
+          {commerceContent.socialDescription}
         </div>
       </div>
     ),

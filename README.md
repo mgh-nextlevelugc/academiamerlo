@@ -34,18 +34,18 @@ Ver `.env.example`. Las que importan para decidir qué se ve:
   en navegación y pie. Es independiente de `NEXT_PUBLIC_PHASE`.
 - `NEXT_PUBLIC_TALLY_FORM_ID`: vacío = maqueta visual del formulario
   (no envía nada). El form real de Tally (`aQ8N92`, multipágina,
-  paleta verde) está en **DRAFT**: no va a cargar embebido hasta que se
-  publique desde la cuenta de Tally. Cuando se publique, poner el ID aquí.
+  paleta verde) está publicado y accesible, verificado el 26 de noviembre
+  de 2026. Cargar ese ID para usar el formulario real.
 - `NEXT_PUBLIC_MOTION`: `off` (default) o `on`. Activa reveals al
   scroll y count-up con más floritura; está detrás de este flag a
   propósito, para que el equipo lo vea prendido y decida antes de
   activarlo en producción. El ticker editorial y el count-up de las
   cifras de audiencia están siempre activos, no dependen de este flag.
-- `NEXT_PUBLIC_HOTMART_CHECKOUT_STANDARD` / `_VIP`: vacíos = los botones
-  de plan en `/inscripciones` muestran el estado "pendiente" (demo). Con
-  los links reales, se vuelven botones de verdad.
+- `NEXT_PUBLIC_HOTMART_CHECKOUT_STANDARD` / `_VIP`: vacíos = el plan muestra
+  "Próximamente", sin botón ni enlace de compra. Con los links reales,
+  aparecen los botones hacia Hotmart.
 - `NEXT_PUBLIC_HOTMART_CHECKOUT_PARTE`: checkout de la suscripción mensual
-  de la comunidad de WhatsApp. Vacío = no se muestra un enlace de compra.
+  de la comunidad de WhatsApp. Vacío = "Próximamente", incluso con PARTE_LIVE `on`.
 - `NEXT_PUBLIC_META_PIXEL_ID`: dejar vacío hasta que exista el píxel de
   Academia Merlo. Vacío o no numérico = no se carga el SDK ni se envían
   eventos. No se usa GTM.
@@ -79,7 +79,7 @@ programadas en código. Cualquier valor de PARTE_LIVE distinto de `on` se
 considera `off`. `/inscripciones` conserva su función de preview de la venta.
 Si falta algún checkout, `npm run build` emite una advertencia con el nombre
 de la variable (sin imprimir su valor). Una bandera `on` sin checkout muestra
-un estado de indisponibilidad, nunca un enlace vacío.
+"Próximamente", sin un botón activo ni un enlace vacío.
 
 Con PARTE_LIVE `on`, `/gracias` ofrece la comunidad como complemento.
 `/parte/gracias` invita a `/#planes` únicamente en fase `launch`. Con
@@ -89,8 +89,9 @@ un estado `submitted` tras `Tally.FormSubmitted`; el formulario de maqueta
 no dispara la oferta porque no registra datos.
 
 - `/gracias`: pasos de acceso para Standard y VIP. `noindex,nofollow`.
-- `/parte`: venta de la comunidad, US$5.99 al mes, gobernada por PARTE_LIVE. `noindex,nofollow` en waitlist;
-  canonical propio y entrada en sitemap al pasar a launch.
+- `/parte`: venta de la comunidad, US$5.99 al mes, gobernada por PARTE_LIVE.
+  Solo es indexable y entra en el sitemap con `launch/on`. En las demás
+  combinaciones lleva `noindex,nofollow`; conserva su canonical propio.
 - `/parte/gracias`: confirmación y plazo de alta en WhatsApp. `noindex,nofollow`.
 - Las dos páginas de gracias están siempre fuera del sitemap. El plazo
   máximo de alta se cambia en `PARTE_ACCESS_MAX_HOURS`, en
@@ -112,6 +113,12 @@ precio antes de publicarlos. No se pudieron confirmar sus precios en vivo.
 Revalidación del 17 de noviembre de 2026: Standard y VIP siguen devolviendo
 el mismo error; el checkout de la comunidad abre y muestra la suscripción
 mensual con conversión local. No se realizaron compras ni se cambiaron ofertas.
+
+Revalidación del 26 de noviembre de 2026: los tres checkouts ya abren.
+Al seleccionar Estados Unidos muestran Standard **US$174**, VIP **US$497**
+y comunidad **US$5.99 al mes**. Esta comprobación sustituye el estado de
+indisponibilidad anterior. No se introdujeron datos personales ni se compró.
+La denominación de la comunidad en Hotmart todavía debe alinearse con la web.
 
 ### Identidad y copy de comercio
 
@@ -156,7 +163,7 @@ El evento de academia identifica el producto `7636264` y omite el importe:
 la URL compartida no permite saber si se compró Standard o VIP. No se
 atribuye un precio ficticio. Por eso no sirve para medir ingresos/ROAS de
 academia sin añadir una fuente de importe confirmado, como una integración
-de Hotmart. El evento del canal identifica `8990968`, con el precio base
+de Hotmart. El evento de la comunidad identifica `8990968`, con el precio base
 aprobado de 5.99 USD; no representa impuestos o conversiones locales.
 
 La CSP permite el SDK y las conexiones de Meta. Antes de activar el ID
@@ -232,8 +239,9 @@ cosméticos):
   verificó con Playwright headless a esos anchos.
 - Los 7 enlaces externos de los rails de medios (trayectoria + citado
   por) no se probaron en vivo uno por uno.
-- `prefers-reduced-motion` y el flujo completo de Tally con el form
-  **ya publicado** (hoy está en DRAFT, no se puede probar embebido).
+- El flujo completo de Tally con el formulario publicado: su carga y su
+  definición pública están verificadas; el envío completo automatizado
+  se prueba con Tally simulado para no crear registros ficticios.
 - Safari real (el watermark/overflow en Safari que menciona el brief
   original ya no aplica, ese elemento se eliminó en v3.3/v3.4, pero
   vale una pasada de todas formas).
@@ -247,9 +255,11 @@ cosméticos):
   de clubes (búsqueda inversa de imagen); ambos ya estaban en la lista
   de pendientes del equipo antes de este port, no son hallazgos nuevos.
   El favicon/apple-icon actual es un recorte del escudo provisorio.
-- `/privacidad`, `/terminos`, `/devoluciones` son placeholders marcados
-  TODO.
-- Formulario de Tally en DRAFT (ver más arriba).
+- `/privacidad` y `/terminos` tienen textos publicados que todavía no
+  describen la suscripción mensual ni el uso del teléfono para dar acceso.
+  Las propuestas de actualización se revisan en el PR antes de publicarlas.
+- Tally está publicado. Corregir en su editor el placeholder del selector
+  de perfil a "Elige una opción" para mantener el español neutro.
 - Los links de Hotmart están definidos en `.env.example`; verificar las
   ofertas y configurar las variables del deployment antes de vender.
 - Hosting confirmado: Hostinger Web Apps detrás de Cloudflare. Verificar
@@ -292,6 +302,37 @@ PORT=3100 HOSTNAME=127.0.0.1 node .next/standalone/server.js
 Los avisos de checkouts ausentes no impiden el build, pero sin las variables
 `NEXT_PUBLIC_HOTMART_CHECKOUT_STANDARD` y `_VIP` los planes no tienen enlaces
 de compra. Sus valores están en la tabla de Hotmart y en `.env.example`.
+
+## Pasos del día de lanzamiento
+
+1. **Preparación en Hostinger.** En hPanel, cargar los tres checkouts de la
+   tabla de Hotmart y `NEXT_PUBLIC_SITE_URL=https://academiamerlo.com`.
+   Mantener Node.js 22, npm y el build standalone. Verificar las ofertas en
+   Hotmart antes de habilitar ventas. Si falta una URL, el build advierte el
+   nombre de la variable y la interfaz muestra "Próximamente".
+2. **Día de la academia.** Cambiar `NEXT_PUBLIC_PHASE=launch`, reconstruir y
+   desplegar el commit aprobado de `main`. Comprobar en `/` y
+   `/inscripciones` que "Elegir Standard" y "Elegir VIP" abren el producto,
+   oferta y precio correctos en Hotmart. La comunidad queda debajo de ambos
+   planes, con "Próximamente" mientras `NEXT_PUBLIC_PARTE_LIVE=off`.
+3. **Día de la comunidad de WhatsApp.** Cambiar `NEXT_PUBLIC_PARTE_LIVE=on`,
+   reconstruir y desplegar. Comprobar el botón de `/parte`, la tarjeta de
+   comunidad en la sección de planes y los enlaces de menú y pie. Revisar
+   la imagen social de `/parte` y su tarjeta grande al compartir.
+4. **Después de cada despliegue.** Abrir `/gracias` y `/parte/gracias` y
+   comprobar `noindex,nofollow` en el HTML y su ausencia del sitemap.
+   `/parte` debe estar en el sitemap solo con `launch/on`. `robots.txt`
+   debe tener un único bloque `User-Agent: *`, permitiendo leer el noindex.
+   Si la respuesta pública duplica bloques aunque el archivo generado no
+   los duplique, revisar las reglas de robots de Hostinger/Cloudflare.
+5. **Cierre.** Verificar a 375 px las ocho rutas y completar la comprobación
+   del registro con Tally. Los cambios de textos legales necesitan aprobación
+   de Migue. Meta Pixel y Google Tag Manager quedan fuera de este lanzamiento
+   técnico; mantener `NEXT_PUBLIC_META_PIXEL_ID` vacío.
+
+Reiniciar la aplicación sin reconstruir no actualiza las variables
+`NEXT_PUBLIC_*`. El despliegue debe tomar el código actual de GitHub,
+no la opción que reutiliza los archivos de un despliegue anterior.
 
 ## Scripts
 

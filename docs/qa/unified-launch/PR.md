@@ -18,7 +18,7 @@ Standard y VIP encabezan la sección de venta. La comunidad de WhatsApp aparece 
 
 [Informe y evidencia completa](https://github.com/mgh-nextlevelugc/academiamerlo/blob/feat/unified-academia-whatsapp/docs/qa/unified-launch/README.md), con capturas adicionales a 768 px, estados Próximamente y confirmación de Tally.
 
-## Variables que Migue debe cargar en Vercel antes de desplegar
+## Variables que Migue debe cargar en Hostinger Web Apps antes de desplegar
 Aplicar en Production y Preview. Las NEXT_PUBLIC se fijan al construir; cambiar un valor requiere nuevo deployment.
 
 | Variable | Valor |
@@ -30,7 +30,7 @@ Aplicar en Production y Preview. Las NEXT_PUBLIC se fijan al construir; cambiar 
 | `NEXT_PUBLIC_HOTMART_CHECKOUT_PARTE` | `https://pay.hotmart.com/W108525490P` |
 | `NEXT_PUBLIC_META_PIXEL_ID` | Vacío |
 
-La configuración remota de Vercel no fue modificada.
+La configuración remota de Hostinger Web Apps no fue modificada.
 
 ## Pendientes externos
 - Revalidación del 17 de noviembre de 2026: Standard y VIP muestran **Product unavailable**, error 005 de Hotmart. El checkout de comunidad abre. Habilitar/corregir las ofertas de academia antes de publicar ventas.

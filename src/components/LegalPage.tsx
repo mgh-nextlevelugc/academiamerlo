@@ -1,5 +1,6 @@
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
+import { SITE_PHASE } from "@/lib/site-config";
 
 export type LegalSection = {
   heading: string;
@@ -23,7 +24,7 @@ export function LegalPage({
       <a className="skip" href="#contenido">
         Ir al contenido
       </a>
-      <Nav mode="waitlist" anchorPrefix="/" />
+      <Nav mode={SITE_PHASE === "launch" ? "venta" : "waitlist"} anchorPrefix="/" />
       <main id="contenido">
         <section className="section legal">
           <div className="wrap">
